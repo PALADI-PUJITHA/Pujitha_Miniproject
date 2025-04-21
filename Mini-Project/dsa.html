@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Structures and Algorithms (DSA) Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #4CAF50;
+            padding: 1rem 0;
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #4CAF50;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #e8e8e8;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #4CAF50;
+            overflow-x: auto;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-btn:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Data Structures and Algorithms (DSA) Course</h1>
+    </header>
+
+    <main>
+        <div class="content-section">
+            <h2>Introduction to DSA</h2>
+            <p>Data Structures and Algorithms (DSA) are the building blocks of programming. They help organize and process data efficiently. Mastering DSA is essential for solving complex problems and optimizing applications.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Arrays</h2>
+            <h3>Definition</h3>
+            <p>An array is a collection of elements, each identified by an index. It stores elements of the same data type in contiguous memory locations.</p>
+
+            <h3>Operations</h3>
+            <ul>
+                <li>Insertion</li>
+                <li>Deletion</li>
+                <li>Traversal</li>
+                <li>Searching</li>
+            </ul>
+
+            <h3>Example</h3>
+            <pre>
+<code>
+// Creating an array
+int[] arr = {10, 20, 30, 40, 50};
+
+// Accessing elements
+System.out.println(arr[2]); // Output: 30
+
+// Traversing an array
+for (int i = 0; i < arr.length; i++) {
+    System.out.println(arr[i]);
+}
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Stack</h2>
+            <h3>Definition</h3>
+            <p>A stack is a linear data structure that follows the LIFO (Last In, First Out) principle. Elements are added and removed only from the top of the stack.</p>
+
+            <h3>Operations</h3>
+            <ul>
+                <li>Push: Add an element to the top of the stack.</li>
+                <li>Pop: Remove the top element from the stack.</li>
+                <li>Peek: View the top element without removing it.</li>
+            </ul>
+
+            <h3>Example</h3>
+            <pre>
+<code>
+import java.util.Stack;
+
+Stack<Integer> stack = new Stack<>();
+stack.push(10);
+stack.push(20);
+System.out.println(stack.peek()); // Output: 20
+stack.pop();
+System.out.println(stack.peek()); // Output: 10
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Queue</h2>
+            <h3>Definition</h3>
+            <p>A queue is a linear data structure that follows the FIFO (First In, First Out) principle. Elements are added at the rear and removed from the front.</p>
+
+            <h3>Example</h3>
+            <pre>
+<code>
+import java.util.LinkedList;
+import java.util.Queue;
+
+Queue<Integer> queue = new LinkedList<>();
+queue.add(10);
+queue.add(20);
+System.out.println(queue.poll()); // Output: 10
+System.out.println(queue.peek()); // Output: 20
+</code>
+            </pre>
+        </div>
+
+        <!-- Sections for Lists, Linked Lists, Searching Techniques, Trees, Sorting Techniques, and Time Complexity follow the same structure -->
+
+        <div class="content-section">
+            <h2>References</h2>
+            <ul>
+                <li><a href="https://www.geeksforgeeks.org/data-structures/" target="_blank">GeeksforGeeks - Data Structures</a></li>
+                <li><a href="https://www.javatpoint.com/data-structure-tutorial" target="_blank">JavaTpoint - Data Structures</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <a href="courses.html" class="back-btn">Back to Courses</a>
+    </footer>
+</body>
+</html>

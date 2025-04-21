@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Programming Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color:  #4CAF50;
+            padding: 1rem 0;
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color:  #4CAF50;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #e8e8e8;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid  #4CAF50;
+            overflow-x: auto;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color:  #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-btn:hover {
+            background-color:  #4CAF50;
+        }
+
+        a {
+            color:  #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Java Programming Course</h1>
+    </header>
+
+    <main>
+        <div class="content-section">
+            <h2>Introduction to Java</h2>
+            <p>Java is a high-level, object-oriented programming language developed by Sun Microsystems in 1995. It is platform-independent, secure, and designed for building robust applications.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>History</h2>
+            <p>Java was initially called "Oak" and was designed for interactive television. It was later renamed "Java" and became widely popular due to its platform independence and extensive library support.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Basic Syntax</h2>
+            <p>A simple Java program:</p>
+            <pre>
+<code>
+// Import the necessary packages
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Output</h2>
+            <p>Java uses the <code>System.out.println</code> method for output:</p>
+            <pre>
+<code>
+System.out.println("Hello, Java!");
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Comments</h2>
+            <p>Comments can be used to explain Java code, and to make it more readable. It can also be used to prevent execution when testing alternative code.
+
+            </p>
+            <pre>
+<code>
+// Single-line comment
+/* Multi-line comment */
+/** JavaDoc comment */
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Variables</h2>
+            <p>Variables in Java store data:</p>
+            <pre>
+<code>
+int age = 25;
+double salary = 55000.50;
+char grade = 'A';
+String name = "John";
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Data Types</h2>
+            <p>Java supports several data types:</p>
+            <ul>
+                <li><b>int</b>: stores integers (whole numbers), without decimals, such as 123 or -123</li>
+                <li><b>float</b>: stores floating point numbers, with decimals, such as 19.99 or -19.99</li>
+                <li><b>char</b>: stores single characters, such as 'a' or 'B'. Char values are surrounded by single quotes</li>
+                <li><b>boolean</b>: stores values with two states: true or false</li>
+                <li><b>String</b>: stores text, such as "Hello". String values are surrounded by double quotes</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Typecasting</h2>
+            <p>Type casting is when you assign a value of one primitive data type to another type.
+             <p>In Java, there are two types of casting:</p>
+            <p> Widening Casting (automatically) - converting a smaller type to a larger type size</p>
+            <p>byte -> short -> char -> int -> long -> float -> double</p>
+            <p>Narrowing Casting (manually) - converting a larger type to a smaller size type</p>
+            <p>double -> float -> long -> int -> char -> short -> byte</p>
+            <pre>
+<code>
+// Implicit casting
+int x = 10;
+double y = x;
+
+// Explicit casting
+double a = 5.6;
+int b = (int) a;
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Operators</h2>
+            <p>Java has various operators:</p>
+            <h3>Arithmetic Operators</h3>
+            <pre>
+<code>
+int sum = 5 + 3;
+int product = 5 * 3;
+</code>
+            </pre>
+
+            <h3>Relational Operators</h3>
+            <pre>
+<code>
+boolean isEqual = (5 == 3);
+boolean isGreater = (5 > 3);
+</code>
+            </pre>
+
+            <h3>Logical Operators</h3>
+            <pre>
+<code>
+boolean result = (5 > 3 && 4 < 6);
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Conditional Statements</h2>
+            <h3>If Statement</h3>
+            <p>Use the if statement to specify a block of Java code to be executed if a condition is true.</p>
+            <pre>
+<code>
+if (age > 18) {
+    System.out.println("Adult");
+}
+</code>
+            </pre>
+            <h3>If-Else Statement</h3>
+            <p>Use the else statement to specify a block of code to be executed if the condition is false.</p>
+            <pre>
+<code>
+if (age > 18) {
+    System.out.println("Adult");
+} else {
+    System.out.println("Minor");
+}
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Looping Statements</h2>
+            <h3>For Loop</h3>
+            <p>When you know exactly how many times you want to loop through a block of code, use the for loop instead of a while loop:</p>
+            <pre>
+<code>
+for (int i = 0; i < 5; i++) {
+    System.out.println(i);
+}
+</code>
+            </pre>
+
+            <h3>While Loop</h3>
+            <p>The while loop loops through a block of code as long as a specified condition is true:</p>
+            <pre>
+<code>
+int i = 0;
+while (i < 5) {
+    System.out.println(i);
+    i++;
+}
+</code>
+            </pre>
+
+            <h3>Switch Statement</h3>
+            <p>Instead of writing many if..else statements, you can use the switch statement.
+            The switch statement selects one of many code blocks to be executed:</p>
+            <pre>
+<code>
+switch (day) {
+    case 1:
+        System.out.println("Monday");
+        break;
+    case 2:
+        System.out.println("Tuesday");
+        break;
+    default:
+        System.out.println("Other day");
+}
+</code>
+            </pre>
+        </div>
+        <div class="content-section">
+            <h2>Object-Oriented Concepts</h2>
+            <h3>Classes and Objects</h3>
+            <p>Java is an object-oriented programming language.</p>
+            <p>Everything in Java is associated with classes and objects, along with its attributes and methods. For example: in real life, a car is an object. The car has attributes, such as weight and color, and methods, such as drive and brake.</p>
+            <p>A Class is like an object constructor, or a "blueprint" for creating objects.</p>
+            <pre>
+<code>
+
+    public class Main {
+        int x = 5;
+      
+        public static void main(String[] args) {
+          Main myObj = new Main();
+          System.out.println(myObj.x);
+        }
+      }
+</code>
+            </pre>
+            <h3>Inheritance</h3>
+            <p>In Java, it is possible to inherit attributes and methods from one class to another. We group the "inheritance concept" into two categories:</p>
+            <p>subclass (child) - the class that inherits from another class</p>
+            <p>superclass (parent) - the class being inherited from</p>
+            <p>To inherit from a class, use the extends keyword.</p>
+            <p>In the example below, the Car class (subclass) inherits the attributes and methods from the Vehicle class (superclass):</p>
+            <pre>
+<code>
+    class Vehicle {
+        protected String brand = "Ford";        // Vehicle attribute
+        public void honk() {                    // Vehicle method
+          System.out.println("Tuut, tuut!");
+        }
+      }
+      
+      class Car extends Vehicle {
+        private String modelName = "Mustang";    // Car attribute
+        public static void main(String[] args) {
+      
+          // Create a myCar object
+          Car myCar = new Car();
+      
+          // Call the honk() method (from the Vehicle class) on the myCar object
+          myCar.honk();
+      
+          // Display the value of the brand attribute (from the Vehicle class) and the value of the modelName from the Car class
+          System.out.println(myCar.brand + " " + myCar.modelName);
+        }
+      }
+</code></pre>
+<h3>Encapsulation</h3>
+<p>The meaning of Encapsulation, is to make sure that "sensitive" data is hidden from users. To achieve this, you must:</p>
+<p>declare class variables/attributes as private</p>
+<p>provide public get and set methods to access and update the value of a private variable</p>
+
+<pre>
+<code>
+    public class Person {
+        private String name; // private = restricted access
+      
+        // Getter
+        public String getName() {
+          return name;
+        }
+      
+        // Setter
+        public void setName(String newName) {
+          this.name = newName;
+        }
+      }
+</code>
+</code></pre>
+<h3>Polymorphism</h3>
+<p>Polymorphism means "many forms", and it occurs when we have many classes that are related to each other by inheritance.</p>
+<p>Like we specified in the previous chapter; Inheritance lets us inherit attributes and methods from another class. Polymorphism uses those methods to perform different tasks. This allows us to perform a single action in different ways.</p>
+<p>For example, think of a superclass called Animal that has a method called animalSound(). Subclasses of Animals could be Pigs, Cats, Dogs, Birds - And they also have their own implementation of an animal sound (the pig oinks, and the cat meows, etc.):</p>
+<pre>
+<code>
+    class Animal {
+        public void animalSound() {
+          System.out.println("The animal makes a sound");
+        }
+      }
+      
+      class Pig extends Animal {
+        public void animalSound() {
+          System.out.println("The pig says: wee wee");
+        }
+      }
+      
+      class Dog extends Animal {
+        public void animalSound() {
+          System.out.println("The dog says: bow wow");
+        }
+      }
+</code>
+            </pre>
+            <h3>File handling</h3>
+            <p>File handling is an important part of any application.</p>
+            <p>Java has several methods for creating, reading, updating, and deleting files.</p>
+            <p>The File class from the java.io package, allows us to work with files.</p>
+            <p>To use the File class, create an object of the class, and specify the filename or directory name</p>
+            <pre>
+             <code>
+                import java.io.File;  // Import the File class
+                import java.io.IOException;  // Import the IOException class to handle errors
+
+                public class CreateFile {
+                public static void main(String[] args) {
+                try {
+                File myObj = new File("filename.txt");
+                if (myObj.createNewFile()) {
+                System.out.println("File created: " + myObj.getName());
+                } else {
+                System.out.println("File already exists.");
+                }
+                } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+        }
+    }
+             </code>   
+            </pre>
+
+        <!-- Additional sections for Arrays, Methods, OOP Concepts, and others go here -->
+
+        <div class="content-section">
+            <h2>References</h2>
+            <ul>
+                <li><a href="https://www.javatpoint.com/" target="_blank">JavaTpoint</a></li>
+                <li><a href="https://www.geeksforgeeks.org/java/" target="_blank">GeeksforGeeks</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <a href="courses.html" class="back-btn">Back to Courses</a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #4CAF50;
+            padding: 1rem 0;
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #4CAF50;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            color: #4CAF50;
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #e8e8e8;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #4CAF50;
+            overflow-x: auto;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-btn:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SQL Course</h1>
+    </header>
+
+    <main>
+        <div class="content-section">
+            <h2>Introduction to SQL</h2>
+            <p>SQL (Structured Query Language) is used to communicate with and manage databases. SQL is the standard language for relational database systems like MySQL, PostgreSQL, and SQL Server.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Creating a Database</h2>
+            <p>Create a database using the <code>CREATE DATABASE</code> statement:</p>
+            <pre>
+<code>
+CREATE DATABASE CompanyDB;
+</code>
+            </pre>
+            <p>To use the database:</p>
+            <pre>
+<code>
+USE CompanyDB;
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Basic Syntax</h2>
+            <p>A simple SQL query to retrieve all columns from a table:</p>
+            <pre>
+<code>
+SELECT * FROM employees;
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Constraints</h2>
+            <p>Constraints ensure data integrity in a database. Examples:</p>
+            <ul>
+                <li><strong>NOT NULL</strong> - Ensures a column cannot have NULL values.</li>
+                <li><strong>UNIQUE</strong> - Ensures all values in a column are unique.</li>
+                <li><strong>PRIMARY KEY</strong> - Combines NOT NULL and UNIQUE.</li>
+                <li><strong>FOREIGN KEY</strong> - Links two tables.</li>
+            </ul>
+            <p>Example:</p>
+            <pre>
+<code>
+CREATE TABLE employees (
+    id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    department_id INT,
+    FOREIGN KEY (department_id) REFERENCES departments(id)
+);
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Aliases</h2>
+            <p>Aliases give a table or column a temporary name:</p>
+            <pre>
+<code>
+SELECT name AS EmployeeName, salary AS EmployeeSalary
+FROM employees;
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Ordering Results</h2>
+            <p>Use <code>ORDER BY</code> to sort query results:</p>
+            <pre>
+<code>
+SELECT name, salary
+FROM employees
+ORDER BY salary DESC;
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Group By and Having</h2>
+            <p>Use <code>GROUP BY</code> to group rows sharing a property. The <code>HAVING</code> clause filters grouped data:</p>
+            <pre>
+<code>
+SELECT department_id, COUNT(*) AS TotalEmployees
+FROM employees
+GROUP BY department_id
+HAVING COUNT(*) > 5;
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Subqueries</h2>
+            <p>Subqueries are nested queries within another SQL query:</p>
+            <pre>
+<code>
+SELECT name
+FROM employees
+WHERE salary > (SELECT AVG(salary) FROM employees);
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Joins</h2>
+            <h3>Inner Join</h3>
+            <p>Returns rows with matching values in both tables:</p>
+            <pre>
+<code>
+SELECT employees.name, departments.department_name
+FROM employees
+INNER JOIN departments
+ON employees.department_id = departments.id;
+</code>
+            </pre>
+            <h3>Left Join</h3>
+            <p>Returns all rows from the left table and matching rows from the right table:</p>
+            <pre>
+<code>
+SELECT employees.name, departments.department_name
+FROM employees
+LEFT JOIN departments
+ON employees.department_id = departments.id;
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Indexes</h2>
+            <p>Indexes speed up query performance:</p>
+            <pre>
+<code>
+CREATE INDEX idx_name ON employees(name);
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Views</h2>
+            <p>Views are virtual tables based on a query:</p>
+            <pre>
+<code>
+CREATE VIEW EmployeeDetails AS
+SELECT name, position, salary
+FROM employees
+WHERE salary > 50000;
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Stored Procedures</h2>
+            <p>Stored procedures are precompiled SQL statements:</p>
+            <pre>
+<code>
+CREATE PROCEDURE GetEmployees()
+BEGIN
+    SELECT * FROM employees;
+END;
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Triggers</h2>
+            <p>Triggers execute automatically in response to an event:</p>
+            <pre>
+<code>
+CREATE TRIGGER UpdateSalary
+AFTER UPDATE ON employees
+FOR EACH ROW
+BEGIN
+    INSERT INTO audit_log(employee_id, old_salary, new_salary)
+    VALUES (OLD.id, OLD.salary, NEW.salary);
+END;
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>References</h2>
+            <ul>
+                <li><a href="https://www.w3schools.com/sql/" target="_blank">W3Schools: SQL Tutorial</a></li>
+                <li><a href="https://www.sqltutorial.org/" target="_blank">SQL Tutorial</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <a href="courses.html" class="back-btn">Back to Courses</a>
+    </footer>
+</body>
+</html>

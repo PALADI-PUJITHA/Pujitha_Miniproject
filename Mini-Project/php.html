@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #4CAF50;
+            padding: 1rem 0;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 2.5rem;
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #4CAF50;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            color: #4CAF50;
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #e8e8e8;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: solid black;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #4CAF50;
+            overflow-x: auto;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-btn:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PHP Course</h1>
+    </header>
+
+    <main>
+        <div class="content-section">
+            <h2>Introduction to PHP</h2>
+            <p>PHP (Hypertext Preprocessor) is a popular server-side scripting language used for web development. It is known for its simplicity and compatibility with a wide range of databases.</p>
+            <p>Example of a simple PHP script:</p>
+            <pre>
+<code>
+<?php
+echo "Hello, World!";
+?>
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Variables</h2>
+            <p>Variables in PHP start with a <code>$</code> sign. They can store different data types like strings, integers, and arrays.</p>
+            <pre>
+<code>
+<?php
+$name = "John";
+$age = 25;
+$isStudent = true;
+echo "Name: $name, Age: $age";
+?>
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Data Types</h2>
+            <p>PHP supports several data types:</p>
+            <ul>
+                <li>String</li>
+                <li>Integer</li>
+                <li>Float</li>
+                <li>Boolean</li>
+                <li>Array</li>
+                <li>Object</li>
+                <li>NULL</li>
+            </ul>
+            <pre>
+<code>
+<?php
+$floatNumber = 10.5;
+$booleanValue = true;
+$arrayExample = array("Apple", "Banana", "Cherry");
+?>
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Control Structures</h2>
+            <h3>If-Else</h3>
+            <pre>
+<code>
+<?php
+$age = 20;
+if ($age >= 18) {
+    echo "Adult";
+} else {
+    echo "Minor";
+}
+?>
+</code>
+            </pre>
+            <h3>Switch</h3>
+            <pre>
+<code>
+<?php
+$color = "red";
+switch ($color) {
+    case "red":
+        echo "The color is red.";
+        break;
+    case "blue":
+        echo "The color is blue.";
+        break;
+    default:
+        echo "Unknown color.";
+}
+?>
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Loops</h2>
+            <h3>For Loop</h3>
+            <pre>
+<code>
+<?php
+for ($i = 0; $i < 5; $i++) {
+    echo "Number: $i<br>";
+}
+?>
+</code>
+            </pre>
+            <h3>While Loop</h3>
+            <pre>
+<code>
+<?php
+$i = 0;
+while ($i < 5) {
+    echo "Number: $i<br>";
+    $i++;
+}
+?>
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Functions</h2>
+            <p>Functions in PHP are reusable blocks of code:</p>
+            <pre>
+<code>
+<?php
+function greet($name) {
+    return "Hello, $name!";
+}
+
+echo greet("John");
+?>
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Working with Forms</h2>
+            <p>PHP can handle form data using the <code>$_GET</code> or <code>$_POST</code> superglobals.</p>
+            <pre>
+<code>
+<!-- HTML Form -->
+<form method="post" action="">
+    Name: <input type="text" name="name">
+    <input type="submit">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST["name"];
+    echo "Hello, $name!";
+}
+?>
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>PHP and MySQL</h2>
+            <p>PHP can interact with MySQL databases to perform operations like data retrieval and insertion.</p>
+            <pre>
+<code>
+<?php
+$conn = new mysqli("localhost", "username", "password", "database");
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT id, name FROM users";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        echo "ID: " . $row["id"] . " - Name: " . $row["name"] . "<br>";
+    }
+} else {
+    echo "0 results";
+}
+
+$conn->close();
+?>
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>PHP and MongoDB</h2>
+            <p>PHP can connect to MongoDB for NoSQL database operations using the <code>mongodb</code> extension.</p>
+            <pre>
+<code>
+<?php
+require 'vendor/autoload.php';
+
+$client = new MongoDB\Client("mongodb://localhost:27017");
+$collection = $client->mydatabase->mycollection;
+
+$result = $collection->find();
+foreach ($result as $doc) {
+    print_r($doc);
+}
+?>
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>References</h2>
+            <ul>
+                <li><a href="https://www.php.net/" target="_blank">PHP Official Documentation</a></li>
+                <li><a href="https://www.w3schools.com/php/" target="_blank">W3Schools: PHP Tutorial</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <a href="courses.html" class="back-btn">Back to Courses</a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        nav ul {
+            background-color: #333;
+            list-style-type: none;
+            margin: 0;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        label {
+            font-size: 16px;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 4px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        button:hover {
+            background-color: #4CAF50;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="exercise.html">Exercise</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Contact Us</h1>
+        <form id="contact-form">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="subject">Subject you have taken</label>
+            <input type="text" id="subject" name="subject" placeholder="Subject of your message" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+        <div class="message" id="success-message" style="display: none;">
+            <p>Your message has been sent successfully! We'll get back to you soon.</p>
+        </div>
+        <div class="message" id="error-message" style="display: none;">
+            <p>Oops! Something went wrong. Please try again later.</p>
+        </div>
+    </div>
+
+    <script>
+        // Form submission handler
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting the default way
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            // Basic validation (you can expand this)
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all the fields.');
+                return;
+            }
+
+            // Simulate a successful message send (this can be replaced with an actual backend API call)
+            setTimeout(function() {
+                document.getElementById('success-message').style.display = 'block';
+                document.getElementById('contact-form').reset(); // Clear form fields
+            }, 1000);
+
+            // You could use an actual backend API to send the form data, e.g., using Fetch API
+            // Example (not functional in this code):
+            // fetch('/submit-contact-form', {
+            //     method: 'POST',
+            //     body: JSON.stringify({ name, email, subject, message }),
+            //     headers: { 'Content-Type': 'application/json' }
+            // })
+            // .then(response => response.json())
+            // .then(data => {
+            //     document.getElementById('success-message').style.display = 'block';
+            //     document.getElementById('contact-form').reset();
+            // })
+            // .catch(error => {
+            //     document.getElementById('error-message').style.display = 'block';
+            // });
+        });
+    </script>
+</body>
+</html>

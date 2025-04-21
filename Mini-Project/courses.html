@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #333;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 8px;
+        }
+
+        nav ul li a:hover {
+            background-color: #575757;
+            border-radius: 4px;
+        }
+
+        /* Main container */
+        .container {
+            width: 90%;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Course Cards Section */
+        .course-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Fixed 4 columns */
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .course-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .course-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Course Card Styling */
+        .course-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .course-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .course-card img {
+            display: block;
+            margin: 0 auto 15px auto;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .course-card button {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .course-card button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="exercise.html">Exercise</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Explore Our Courses</h1>
+        <p>Discover a variety of technical courses that will help you advance your skills and knowledge.</p>
+
+        <!-- Course Cards Section -->
+        <div class="course-container">
+            <!-- Reuse this block for each course -->
+            <div class="course-card">
+                <h3>HTML</h3>
+                <img src="https://tse3.mm.bing.net/th?id=OIP.rJlGRhc-aLapZKLwPzSfQAHaFm&pid=Api&P=0&h=180" alt="html icon">
+                <button onclick="enrollNow('HTML')">Enroll Now</button>
+            </div>
+
+            <div class="course-card">
+                <h3>CSS</h3>
+                <img src="https://tse3.mm.bing.net/th?id=OIP.NccvSu6Gut1HXGwUTBKYKgHaH3&pid=Api&P=0&h=180" alt="css icon">
+                <button onclick="enrollNow('CSS')">Enroll Now</button>
+            </div>
+
+            <div class="course-card">
+                <h3>JavaScript</h3>
+                <img src="https://tse2.mm.bing.net/th?id=OIP.enmrdVqi-spRDaUaxYXPxgHaHa&pid=Api&P=0&h=180" alt="javascript icon">
+                <button onclick="enrollNow('JavaScript')">Enroll Now</button>
+            </div>
+
+            <div class="course-card">
+                <h3>C</h3>
+                <img src="https://tse4.mm.bing.net/th?id=OIP.-wK8kSbegCP7kdE8hVjRCQHaHk&pid=Api&P=0&h=180" alt="C icon">
+                <button onclick="enrollNow('C')">Enroll Now</button>
+            </div>
+
+            <div class="course-card">
+                <h3>CPP</h3>
+                <img src="https://tse2.mm.bing.net/th?id=OIP.c9BbPNmGFrhbXYTdOTG6FAHaFj&pid=Api&P=0&h=180" alt="CPP icon">
+                <button onclick="enrollNow('CPP')">Enroll Now</button>
+            </div>
+
+            <div class="course-card">
+                <h3>Java</h3>
+                <img src="https://tse4.mm.bing.net/th?id=OIP.EyPP6aoj_xs6-dM7ksvwpwHaHa&pid=Api&P=0&h=180" alt="Java icon">
+                <button onclick="enrollNow('Java')">Enroll Now</button>
+            </div>
+
+            <div class="course-card">
+                <h3>SQL</h3>
+                <img src="https://tse2.mm.bing.net/th?id=OIP.7AqulqorP0FxYT-rFReArgHaI4&pid=Api&P=0&h=180" alt="sql icon">
+                <button onclick="enrollNow('SQL')">Enroll Now</button>
+            </div>
+
+            <div class="course-card">
+                <h3>Python</h3>
+                <img src="https://tse2.mm.bing.net/th?id=OIP.xePC9eCXE-p7xCpCMUAaFgHaHa&pid=Api&P=0&h=180" alt="Python icon">
+                <button onclick="enrollNow('Python')">Enroll Now</button>
+            </div>
+
+            <div class="course-card">
+                <h3>PHP</h3>
+                <img src="https://tse3.mm.bing.net/th?id=OIP.G1ZHKNg3qsB9yHAK4NvPdQHaHa&pid=Api&P=0&h=180" alt="php icon">
+                <button onclick="enrollNow('PHP')">Enroll Now</button>
+            </div>
+
+            <div class="course-card">
+                <h3>Bootstrap</h3>
+                <img src="https://tse1.mm.bing.net/th?id=OIP.LHhU-FJhMXi5Pm3AN7CayQHaFj&pid=Api&P=0&h=180" alt="Bootstrap icon">
+                <button onclick="enrollNow('Bootstrap')">Enroll Now</button>
+            </div>
+
+            <div class="course-card">
+                <h3>Cloud Computing</h3>
+                <img src="https://tse1.mm.bing.net/th?id=OIP.XJofKw1BCC2OKXx34DbttAHaHa&pid=Api&P=0&h=180" alt="Cloud Computing">
+                <button onclick="enrollNow('Cloud Computing')">Enroll Now</button>
+            </div>
+
+            <div class="course-card">
+                <h3>Excel</h3>
+                <img src="https://tse4.mm.bing.net/th?id=OIP.HjtU4XXhAP6vds9dNnvj6gHaHa&pid=Api&P=0&h=180" alt="Excel icon">
+                <button onclick="enrollNow('Excel')">Enroll Now</button>
+            </div>
+
+            <div class="course-card">
+                <h3>MySQL</h3>
+                <img src="https://tse2.mm.bing.net/th?id=OIP.knt4jZIR6HmZVpzxlgWnswHaHa&pid=Api&P=0&h=180" alt="Mysql icon">
+                <button onclick="enrollNow('MySQL')">Enroll Now</button>
+            </div>
+
+            <div class="course-card">
+                <h3>Cybersecurity</h3>
+                <img src="https://tse4.mm.bing.net/th?id=OIP.FjamEbkjtFIzIWy_C1gD5gHaEK&pid=Api&P=0&h=180" alt="Cyber Security icon">
+                <button onclick="enrollNow('Cybersecurity')">Enroll Now</button>
+            </div>
+
+            <div class="course-card">
+                <h3>Data Science</h3>
+                <img src="https://tse2.mm.bing.net/th?id=OIP.ec8mIyDrm0_sOTrfii1YOQHaH1&pid=Api&P=0&h=180" alt="Data Science">
+                <button onclick="enrollNow('Data Science')">Enroll Now</button>
+            </div>
+
+            <div class="course-card">
+                <h3>DSA</h3>
+                <img src="https://tse2.mm.bing.net/th?id=OIP.t3nHqhG0nXbRXMOQ4w-hhAHaHa&pid=Api&P=0&h=180" alt="DSA">
+                <button onclick="enrollNow('DSA')">Enroll Now</button>
+            </div>
+        </div> <!-- End of Course Cards Section -->
+    </div> <!-- End of Main Content -->
+
+    <script>
+        function enrollNow(courseName) {
+            let user = JSON.parse(localStorage.getItem('loggedInUser'));
+            if (user) {
+                alert(`Hello ${user.username}, you've successfully enrolled in the ${courseName} course!`);
+                window.location.href = `${courseName.toLowerCase().replace(/\s+/g, '-')}.html`;
+            } else {
+                alert('Please log in first to enroll in courses.');
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
+</body>
+</html>

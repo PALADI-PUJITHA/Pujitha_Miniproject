@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #4CAF50;
+            padding: 1rem 0;
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #4CAF50;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #e8e8e8;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #4CAF50;
+            overflow-x: auto;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-btn:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Excel Course</h1>
+    </header>
+
+    <main>
+        <div class="content-section">
+            <h2>Introduction to Excel</h2>
+            <p>Excel is a powerful spreadsheet application developed by Microsoft. It is widely used for data analysis, visualization, and automation.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>History</h2>
+            <p>Excel was first introduced in 1985 for the Mac, and later released for Windows in 1987. Over the years, it has become one of the most popular tools for businesses and individuals alike.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Basic Features</h2>
+            <p>Key features of Excel include:</p>
+            <ul>
+                <li>Spreadsheet layout with rows and columns</li>
+                <li>Formula and function support for calculations</li>
+                <li>Data visualization using charts and graphs</li>
+                <li>PivotTables for data summarization</li>
+                <li>Data filtering and sorting</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Getting Started</h2>
+            <p>Here is a quick example of adding values in two cells:</p>
+            <pre>
+<code>
+// Enter values in cells A1 and B1
+A1: 10
+B1: 20
+
+// Formula in cell C1
+C1: =A1 + B1
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Formulas and Functions</h2>
+            <p>Excel offers a variety of built-in functions for different tasks:</p>
+            <h3>Mathematical Functions</h3>
+            <pre>
+<code>
+=SUM(A1:A10)   // Adds all values from A1 to A10
+=AVERAGE(A1:A10) // Calculates the average
+</code>
+            </pre>
+
+            <h3>Text Functions</h3>
+            <pre>
+<code>
+=CONCAT(A1, B1)   // Concatenates values from A1 and B1
+=UPPER(A1)        // Converts text to uppercase
+</code>
+            </pre>
+
+            <h3>Date and Time Functions</h3>
+            <pre>
+<code>
+=TODAY()          // Returns the current date
+=NOW()            // Returns the current date and time
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Data Visualization</h2>
+            <p>Excel allows you to create various types of charts:</p>
+            <ul>
+                <li>Bar Charts</li>
+                <li>Line Charts</li>
+                <li>Pie Charts</li>
+                <li>Scatter Plots</li>
+            </ul>
+            <p>To create a chart, select your data and choose a chart type from the "Insert" menu.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Conditional Formatting</h2>
+            <p>Conditional formatting is used to highlight cells based on their values. For example:</p>
+            <pre>
+<code>
+// Highlight cells greater than 100
+Select Range -> Conditional Formatting -> Highlight Cell Rules -> Greater Than -> 100
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Macros</h2>
+            <p>Macros in Excel are used for automating repetitive tasks. A macro is written in VBA (Visual Basic for Applications).</p>
+            <p>Here is a simple macro example:</p>
+            <pre>
+<code>
+Sub SimpleMacro()
+    MsgBox "Hello, Excel!"
+End Sub
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>References</h2>
+            <ul>
+                <li><a href="https://www.exceljet.net/" target="_blank">ExcelJet</a></li>
+                <li><a href="https://support.microsoft.com/en-us/excel" target="_blank">Microsoft Excel Support</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <a href="courses.html" class="back-btn">Back to Courses</a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            height: 70px;
+        }
+       
+
+        .container {
+            width: 90%;
+            margin: 2rem auto;
+            line-height: 1.6;
+        }
+        h1{
+            color: #e7f3fe;
+        }
+        h2 {
+            color: green;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        .example {
+            background-color: #f4f4f4;
+            border-left: 4px solid #4CAF50;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .note {
+            background-color: #e7f3fe;
+            border-left: 4px solid #2196F3;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>HTML Course</h1>
+    </header>
+
+    <div class="container">
+        <h2>Introduction to HTML</h2>
+        <p>HTML (HyperText Markup Language) is the standard language for creating web pages. It provides the structure of a webpage, allowing you to create headings, paragraphs, links, images, and much more.</p>
+
+        <h2>Basic HTML Structure</h2>
+        <div class="example">
+            <code>
+                &lt;!DOCTYPE html&gt;<br>
+                &lt;html&gt;<br>
+                &nbsp;&nbsp;&lt;head&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;My First HTML Page&lt;/title&gt;<br>
+                &nbsp;&nbsp;&lt;/head&gt;<br>
+                &nbsp;&nbsp;&lt;body&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Hello World!&lt;/h1&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;This is a paragraph.&lt;/p&gt;<br>
+                &nbsp;&nbsp;&lt;/body&gt;<br>
+                &lt;/html&gt;
+            </code>
+        </div>
+
+        <h2>HTML Elements</h2>
+        <p>HTML documents are made up of elements. An element is defined by a start tag, some content, and an end tag:</p>
+        <div class="example">
+            <code>
+                &lt;tagname&gt;Content&lt;/tagname&gt;
+            </code>
+        </div>
+
+        <h2>HTML Attributes</h2>
+        <p>Attributes provide additional information about an element. They are always included in the opening tag and usually come in name/value pairs:</p>
+        <div class="example">
+            <code>
+                &lt;a href="https://example.com" target="_blank"&gt;Visit Example&lt;/a&gt;
+            </code>
+        </div>
+
+        <h2>Links</h2>
+        <p>Links are created using the &lt;a&gt; tag:</p>
+        <div class="example">
+            <code>
+                &lt;a href="https://www.w3schools.com"&gt;Learn HTML&lt;/a&gt;
+            </code>
+        </div>
+
+        <h2>Images</h2>
+        <p>Images are added using the &lt;img&gt; tag. It requires the <strong>src</strong> attribute to specify the image source and the <strong>alt</strong> attribute for alternate text:</p>
+        <div class="example">
+            <code>
+                &lt;img src="image.jpg" alt="Description of image"&gt;
+            </code>
+        </div>
+
+        <h2>Colors</h2>
+        <p>Colors can be added to text and elements using the <strong>style</strong> attribute:</p>
+        <div class="example">
+            <code>
+                &lt;p style="color:blue"&gt;This is blue text.&lt;/p&gt;
+            </code>
+        </div>
+
+        <h2>Tables</h2>
+        <p>HTML tables are used to display data in a tabular format:</p>
+        <div class="example">
+            <code>
+                &lt;table&gt;<br>
+                &nbsp;&nbsp;&lt;tr&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Name&lt;/th&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Age&lt;/th&gt;<br>
+                &nbsp;&nbsp;&lt;/tr&gt;<br>
+                &nbsp;&nbsp;&lt;tr&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;John&lt;/td&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;30&lt;/td&gt;<br>
+                &nbsp;&nbsp;&lt;/tr&gt;<br>
+                &lt;/table&gt;
+            </code>
+        </div>
+
+        <h2>Lists</h2>
+        <p>HTML supports ordered and unordered lists:</p>
+        <div class="example">
+            <p>Unordered List:</p>
+            <code>
+                &lt;ul&gt;<br>
+                &nbsp;&nbsp;&lt;li&gt;Item 1&lt;/li&gt;<br>
+                &nbsp;&nbsp;&lt;li&gt;Item 2&lt;/li&gt;<br>
+                &lt;/ul&gt;
+            </code>
+            <p>Ordered List:</p>
+            <code>
+                &lt;ol&gt;<br>
+                &nbsp;&nbsp;&lt;li&gt;First&lt;/li&gt;<br>
+                &nbsp;&nbsp;&lt;li&gt;Second&lt;/li&gt;<br>
+                &lt;/ol&gt;
+            </code>
+        </div>
+
+        <h2>Inline and Block Elements</h2>
+        <p>HTML elements can be classified as inline or block:</p>
+        <ul>
+            <li><strong>Inline elements:</strong> Do not start on a new line. Examples: &lt;span&gt;, &lt;a&gt;, &lt;img&gt;</li>
+            <li><strong>Block elements:</strong> Start on a new line. Examples: &lt;div&gt;, &lt;p&gt;, &lt;h1&gt;</li>
+        </ul>
+
+        <h2>Learn More</h2>
+        <p>For further learning, check out these resources:</p>
+        <ul>
+            <li><a href="https://www.w3schools.com/html/" target="_blank">W3Schools HTML Tutorial</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">MDN Web Docs: HTML</a></li>
+        </ul>
+    </div>
+</body>
+</html>

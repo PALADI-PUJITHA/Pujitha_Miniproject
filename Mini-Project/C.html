@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color:  #4CAF50;
+            padding: 1rem 0;
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color:  #4CAF50;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #e8e8e8;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid  #4CAF50;
+            overflow-x: auto;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color:  #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-btn:hover {
+            background-color:  #4CAF50;
+        }
+
+        a {
+            color:  #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>C Programming Course</h1>
+    </header>
+
+    <main>
+        <div class="content-section">
+            <h2>Introduction and History</h2>
+            <p>C is a powerful general-purpose programming language developed by Dennis Ritchie in 1972 at Bell Labs. It has been the foundation for many modern languages and is widely used for system programming, embedded systems, and more.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Basic Syntax</h2>
+            <p>The syntax of C is simple and structured. A basic C program looks like this:</p>
+            <pre>
+<code>
+#include <stdio.h>
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Structure of a C Program</h2>
+            <p>A typical C program contains:</p>
+            <ul>
+                <li>Preprocessor Directives</li>
+                <li>Global Declarations</li>
+                <li>Functions</li>
+                <li>Main Function</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Comments</h2>
+            <p>Comments are used to make the code more readable:</p>
+            <pre>
+<code>
+// This is a single-line comment
+/* This is a 
+multi-line comment */
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Variables</h2>
+            <p>Variables store data values:</p>
+            <pre>
+<code>
+int age = 25;
+float height = 5.9;
+char grade = 'A';
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Data Types</h2>
+            <p>C provides several data types:</p>
+            <ul>
+                <li>int</li>
+                <li>float</li>
+                <li>char</li>
+                <li>double</li>
+                <li>void</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Operators</h2>
+            <p>C supports arithmetic, logical, and relational operators:</p>
+            <pre>
+<code>
+int sum = 10 + 20;
+int isEqual = (10 == 20);
+int result = (10 > 5 && 20 > 10);
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Input and Output</h2>
+            <p>Input and output in C:</p>
+            <pre>
+<code>
+#include <stdio.h>
+
+int main() {
+    int age;
+    printf("Enter your age: ");
+    scanf("%d", &age);
+    printf("You are %d years old.\n", age);
+    return 0;
+}
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Conditional Statements</h2>
+            <h3>if-else</h3>
+            <pre>
+<code>
+if (age > 18) {
+    printf("Adult\n");
+} else {
+    printf("Minor\n");
+}
+</code>
+            </pre>
+            <h3>Switch Statement</h3>
+            <pre>
+<code>
+switch (grade) {
+    case 'A':
+        printf("Excellent\n");
+        break;
+    case 'B':
+        printf("Good\n");
+        break;
+    default:
+        printf("Try harder\n");
+}
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Looping Statements</h2>
+            <h3>For Loop</h3>
+            <pre>
+<code>
+for (int i = 0; i < 5; i++) {
+    printf("%d\n", i);
+}
+</code>
+            </pre>
+            <h3>While Loop</h3>
+            <pre>
+<code>
+int i = 0;
+while (i < 5) {
+    printf("%d\n", i);
+    i++;
+}
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Functions</h2>
+            <p>Functions are reusable blocks of code:</p>
+            <pre>
+<code>
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int result = add(10, 20);
+    printf("Sum: %d\n", result);
+    return 0;
+}
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Pointers</h2>
+            <p>Pointers store memory addresses:</p>
+            <pre>
+<code>
+int x = 10;
+int *ptr = &x;
+printf("Value: %d\n", *ptr);
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Structures</h2>
+            <p>Structures are used to group variables:</p>
+            <pre>
+<code>
+struct Person {
+    char name[50];
+    int age;
+};
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Enums</h2>
+            <p>Enums represent named constants:</p>
+            <pre>
+<code>
+enum Day {MON, TUE, WED, THU, FRI};
+</code>
+            </pre>
+        </div>
+        <div class="content-section">
+            <h2>References</h2>
+            <ul>
+               
+                <li><a href="https://www.w3schools.com/css/" target="_blank">W3Schools: C Tutorial</a></li>
+               
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <a href="courses.html" class="back-btn">Back to Courses</a>
+    </footer>
+</body>
+</html>
+
+
+

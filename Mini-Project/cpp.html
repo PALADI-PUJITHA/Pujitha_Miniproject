@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Programming Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #4CAF50;
+            padding: 1rem 0;
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #4CAF50;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #e8e8e8;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #4CAF50;
+            overflow-x: auto;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-btn:hover {
+            background-color: #4CAF50;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>C++ Programming Course</h1>
+    </header>
+
+    <main>
+        <div class="content-section">
+            <h2>Introduction and History</h2>
+            <p>C++ is a high-level programming language developed by Bjarne Stroustrup in 1985. It extends the C language with object-oriented programming features, making it versatile for both procedural and object-oriented paradigms.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Basic Syntax</h2>
+            <p>The syntax of C++ builds upon C. A basic C++ program:</p>
+            <pre>
+<code>
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello, World!" << endl;
+    return 0;
+}
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Input and Output</h2>
+            <p>Input and output are managed using <code>cin</code> and <code>cout</code>:</p>
+            <pre>
+<code>
+#include <iostream>
+using namespace std;
+
+int main() {
+    int age;
+    cout << "Enter your age: ";
+    cin >> age;
+    cout << "You are " << age << " years old." << endl;
+    return 0;
+}
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Comments</h2>
+            <p>Comments in C++:</p>
+            <pre>
+<code>
+// This is a single-line comment
+/* This is a 
+   multi-line comment */
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Variables</h2>
+            <p>Variables are used to store data:</p>
+            <pre>
+<code>
+int age = 25;
+float height = 5.9;
+char grade = 'A';
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Data Types</h2>
+            <p>C++ provides several data types:</p>
+            <ul>
+                <li>int</li>
+                <li>float</li>
+                <li>double</li>
+                <li>char</li>
+                <li>bool</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Operators</h2>
+            <p>Arithmetic, logical, and relational operators are available:</p>
+            <pre>
+<code>
+int sum = 10 + 20;
+bool isEqual = (10 == 20);
+bool result = (10 > 5 && 20 > 10);
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Conditional Statements</h2>
+            <h3>if-else</h3>
+            <p>Use the else if statement to specify a new condition if the first condition is false.</p>
+            <pre>
+<code>
+if (age > 18) {
+    cout << "Adult" << endl;
+} else {
+    cout << "Minor" << endl;
+}
+</code>
+            </pre>
+            <h3>Nested if</h3>
+            
+            <pre>
+<code>
+if (age > 0) {
+    if (age < 18) {
+        cout << "Child" << endl;
+    } else {
+        cout << "Adult" << endl;
+    }
+}
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Looping Statements</h2>
+            <h3>For Loop</h3>
+            <p>When you know exactly how many times you want to loop through a block of code, use the for loop instead of a while loop:</p>
+            <pre>
+<code>
+for (int i = 0; i < 5; i++) {
+    cout << i << endl;
+}
+</code>
+            </pre>
+            <h3>While Loop</h3>
+            <p>The while loop loops through a block of code as long as a specified condition is true:</p>
+            <pre>
+<code>
+int i = 0;
+while (i < 5) {
+    cout << i << endl;
+    i++;
+}
+</code>
+            </pre>
+            <h3>Do-While Loop</h3>
+            <p>The do/while loop is a variant of the while loop. This loop will execute the code block once, before checking if the condition is true, then it will repeat the loop as long as the condition is true.</p>
+            <pre>
+<code>
+int i = 0;
+do {
+    cout << i << endl;
+    i++;
+} while (i < 5);
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Functions and Methods</h2>
+            <p>Functions allow modular programming:</p>
+            <pre>
+<code>
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    cout << "Sum: " << add(5, 10) << endl;
+    return 0;
+}
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Object-Oriented Concepts</h2>
+            <h3>Classes and Objects</h3>
+            <p>C++ is an object-oriented programming language.
+
+                Everything in C++ is associated with classes and objects, along with its attributes and methods. For example: in real life, a car is an object. The car has attributes, such as weight and color, and methods, such as drive and brake.
+                
+                Attributes and methods are basically variables and functions that belongs to the class. These are often referred to as "class members".</p>
+            <pre>
+<code>
+class Car {
+    public:
+        string brand;
+        int year;
+};
+
+int main() {
+    Car car1;
+    car1.brand = "Toyota";
+    car1.year = 2020;
+    cout << car1.brand << " - " << car1.year << endl;
+    return 0;
+}
+</code>
+            </pre>
+            <h3>Inheritance</h3>
+            <p>In C++, it is possible to inherit attributes and methods from one class to another. We group the "inheritance concept" into two categories:</p>
+
+               <p>derived class (child) - the class that inherits from another class</p>
+                <p>base class (parent) - the class being inherited from</p>
+            <pre>
+<code>
+class Vehicle {
+    public:
+        string brand = "Ford";
+};
+
+class Car : public Vehicle {
+    public:
+        string model = "Mustang";
+};
+
+int main() {
+    Car car;
+    cout << car.brand << " - " << car.model << endl;
+    return 0;
+}
+</code></pre>
+<h3>Encapsulation</h3>
+<p>The meaning of Encapsulation, is to make sure that "sensitive" data is hidden from users. To achieve this, you must declare class variables/attributes as private (cannot be accessed from outside the class). If you want others to read or modify the value of a private member, you can provide public get and set methods.
+
+</p>
+
+<pre>
+<code>
+    #include <iostream>
+        using namespace std;
+        
+        class Employee {
+          private:
+            // Private attribute
+            int salary;
+        
+          public:
+            // Setter
+            void setSalary(int s) {
+              salary = s;
+            }
+            // Getter
+            int getSalary() {
+              return salary;
+            }
+        };
+        
+        int main() {
+          Employee myObj;
+          myObj.setSalary(50000);
+          cout << myObj.getSalary();
+          return 0;
+        }
+</code>
+</code></pre>
+<h3>Polymorphism</h3>
+<p>Polymorphism means "many forms", and it occurs when we have many classes that are related to each other by inheritance.
+
+    Like we specified in the previous chapter; Inheritance lets us inherit attributes and methods from another class. Polymorphism uses those methods to perform different tasks. This allows us to perform a single action in different ways.
+    
+    For example, think of a base class called Animal that has a method called animalSound(). Derived classes of Animals could be Pigs, Cats, Dogs, Birds - And they also have their own implementation of an animal sound (the pig oinks, and the cat meows, etc.):</p>
+
+<pre>
+<code>
+    // Base class
+class Animal {
+  public:
+    void animalSound() {
+      cout << "The animal makes a sound \n";
+    }
+};
+
+// Derived class
+class Pig : public Animal {
+  public:
+    void animalSound() {
+      cout << "The pig says: wee wee \n";
+    }
+};
+
+// Derived class
+class Dog : public Animal {
+  public:
+    void animalSound() {
+      cout << "The dog says: bow wow \n";
+    }
+};
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>References</h2>
+            <ul>
+                <li><a href="https://www.learncpp.com/" target="_blank">LearnCpp</a></li>
+                <li><a href="https://cplusplus.com/" target="_blank">Cplusplus.com</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <a href="courses.html" class="back-btn">Back to Courses</a>
+    </footer>
+</body>
+</html>

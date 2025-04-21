@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Course</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #4CAF50;
+            padding: 1rem 0;
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #4CAF50;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #e8e8e8;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #4CAF50;
+            overflow-x: auto;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CSS Course</h1>
+    </header>
+
+    <main>
+        <div class="content-section">
+            <h2>What is CSS?</h2>
+            <p>CSS (Cascading Style Sheets) is used to control the style and layout of web pages. It separates content (HTML) from presentation (CSS).</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Basic Syntax</h2>
+            <p>A CSS rule consists of a selector and declarations:</p>
+            <pre>
+<code>
+selector {
+    property: value;
+}
+</code>
+            </pre>
+            <p>Example:</p>
+            <pre>
+<code>
+h1 {
+    color: blue;
+    text-align: center;
+}
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Colors and Gradients</h2>
+            <p>CSS provides various ways to define colors, including named colors, hex, RGB, HSL, and gradients:</p>
+            <pre>
+<code>
+body {
+    background: linear-gradient(to right, red, yellow);
+}
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Positioning</h2>
+            <p>CSS positioning allows you to control the placement of elements on the page:</p>
+            <ul>
+                <li><strong>Static (default):</strong> The element follows the document flow.</li>
+                <li><strong>Relative:</strong> Positioned relative to its normal position.</li>
+                <li><strong>Absolute:</strong> Positioned relative to its nearest positioned ancestor.</li>
+                <li><strong>Fixed:</strong> Positioned relative to the viewport.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Grid Layout</h2>
+            <p>CSS Grid Layout is a powerful tool for creating complex layouts:</p>
+            <pre>
+<code>
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+}
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>CSS Variables</h2>
+            <p>CSS variables allow you to reuse values throughout your stylesheet:</p>
+            <pre>
+<code>
+:root {
+    --primary-color: #4CAF50;
+}
+button {
+    background-color: var(--primary-color);
+}
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Practice Task</h2>
+            <p>Style the following elements:</p>
+            <ul>
+                <li>Use grid layout to create a simple 3x3 grid.</li>
+                <li>Apply a gradient background to the header.</li>
+                <li>Create a button with a hover effect using transitions.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>References</h2>
+            <ul>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">MDN Web Docs: CSS</a></li>
+                <li><a href="https://www.w3schools.com/css/" target="_blank">W3Schools: CSS Tutorial</a></li>
+                <li><a href="https://css-tricks.com/" target="_blank">CSS-Tricks</a></li>
+                <li><a href="https://web.dev/learn/css/" target="_blank">Web.dev: Learn CSS</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <a href="courses.html" class="back-btn">Back to Courses</a>
+    </footer>
+</body>
+</html>

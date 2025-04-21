@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MySQL Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #4CAF50;
+            padding: 1rem 0;
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #4CAF50;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #e8e8e8;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #4CAF50;
+            overflow-x: auto;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-btn:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MySQL Course</h1>
+    </header>
+
+    <main>
+        <div class="content-section">
+            <h2>Introduction to MySQL</h2>
+            <p>MySQL is an open-source relational database management system (RDBMS). It is widely used for managing structured data and supports a wide range of platforms. MySQL is known for its performance, reliability, and ease of use.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Installation</h2>
+            <p>To install MySQL, download the installer from the <a href="https://dev.mysql.com/downloads/installer/" target="_blank">official MySQL website</a> and follow the installation steps. For Linux, you can use package managers like <code>apt</code> or <code>yum</code>.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Connecting to MySQL</h2>
+            <p>You can connect to MySQL using the command-line client:</p>
+            <pre>
+<code>
+mysql -u username -p
+</code>
+            </pre>
+            <p>Replace <code>username</code> with your MySQL username. Enter the password when prompted.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Creating a Database</h2>
+            <p>Use the <code>CREATE DATABASE</code> statement to create a new database:</p>
+            <pre>
+<code>
+CREATE DATABASE my_database;
+</code>
+            </pre>
+            <p>Replace <code>my_database</code> with your desired database name.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Creating Tables</h2>
+            <p>Tables are the fundamental structures in MySQL. Use the <code>CREATE TABLE</code> statement to define a table:</p>
+            <pre>
+<code>
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Inserting Data</h2>
+            <p>Use the <code>INSERT INTO</code> statement to add data to a table:</p>
+            <pre>
+<code>
+INSERT INTO users (name, email) 
+VALUES ('John Doe', 'john@example.com');
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Querying Data</h2>
+            <p>Retrieve data from a table using the <code>SELECT</code> statement:</p>
+            <pre>
+<code>
+SELECT * FROM users;
+</code>
+            </pre>
+            <p>You can use conditions to filter results:</p>
+            <pre>
+<code>
+SELECT * FROM users WHERE name = 'John Doe';
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Updating Data</h2>
+            <p>Use the <code>UPDATE</code> statement to modify existing data:</p>
+            <pre>
+<code>
+UPDATE users 
+SET email = 'john.doe@example.com' 
+WHERE name = 'John Doe';
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Deleting Data</h2>
+            <p>Remove data using the <code>DELETE</code> statement:</p>
+            <pre>
+<code>
+DELETE FROM users WHERE name = 'John Doe';
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Joins</h2>
+            <p>Joins are used to retrieve data from multiple tables:</p>
+            <pre>
+<code>
+SELECT orders.id, users.name 
+FROM orders 
+INNER JOIN users 
+ON orders.user_id = users.id;
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Indexes</h2>
+            <p>Indexes improve query performance. Create an index using the <code>CREATE INDEX</code> statement:</p>
+            <pre>
+<code>
+CREATE INDEX idx_email ON users (email);
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>References</h2>
+            <ul>
+                <li><a href="https://dev.mysql.com/" target="_blank">MySQL Official Documentation</a></li>
+                <li><a href="https://www.w3schools.com/sql/" target="_blank">W3Schools SQL Tutorial</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <a href="courses.html" class="back-btn">Back to Courses</a>
+    </footer>
+</body>
+</html>

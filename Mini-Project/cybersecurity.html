@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #4CAF50;
+            padding: 1rem 0;
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #4CAF50;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #e8e8e8;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #4CAF50;
+            overflow-x: auto;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-btn:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cyber Security Course</h1>
+    </header>
+
+    <main>
+        <div class="content-section">
+            <h2>Introduction to Cyber Security</h2>
+            <p>Cyber Security involves protecting systems, networks, and programs from digital attacks. These attacks are typically aimed at accessing, changing, or destroying sensitive information, extorting money, or interrupting normal business processes.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Importance of Cyber Security</h2>
+            <p>In the modern world, where most operations rely on digital systems, securing data and systems is critical. Cybersecurity protects against financial losses, reputation damage, and personal data breaches.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Types of Cyber Attacks</h2>
+            <p>Here are some common cyber attacks:</p>
+            <ul>
+                <li><b>Phishing:</b> Fraudulent attempts to obtain sensitive information by pretending to be a trustworthy entity.</li>
+                <li><b>Ransomware:</b> A type of malware that encrypts data and demands payment for decryption.</li>
+                <li><b>SQL Injection:</b> Injecting malicious SQL queries to access databases.</li>
+                <li><b>Man-in-the-Middle (MitM):</b> Eavesdropping on communication between two parties.</li>
+                <li><b>Denial of Service (DoS):</b> Overloading a server to make it unavailable.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Cyber Security Best Practices</h2>
+            <p>Here are some tips to enhance cyber security:</p>
+            <ul>
+                <li>Use strong, unique passwords and enable multi-factor authentication.</li>
+                <li>Keep software and systems up-to-date to patch vulnerabilities.</li>
+                <li>Be cautious of unsolicited emails and links.</li>
+                <li>Back up important data regularly.</li>
+                <li>Implement firewalls and antivirus software.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Firewalls</h2>
+            <p>Firewalls are network security devices that monitor and filter incoming and outgoing network traffic based on an organization’s security policies.</p>
+            <pre>
+<code>
+// Example of enabling a firewall on a Linux system
+sudo ufw enable
+sudo ufw allow ssh
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Encryption</h2>
+            <p>Encryption is a method of converting data into a code to prevent unauthorized access. For example:</p>
+            <pre>
+<code>
+// Example of encrypting a message using Python
+from cryptography.fernet import Fernet
+
+# Generate a key
+key = Fernet.generate_key()
+cipher = Fernet(key)
+
+# Encrypt a message
+message = b"Sensitive data"
+encrypted_message = cipher.encrypt(message)
+print(encrypted_message)
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Incident Response</h2>
+            <p>Incident response involves identifying, managing, and mitigating security breaches:</p>
+            <ul>
+                <li><b>Preparation:</b> Have an incident response plan in place.</li>
+                <li><b>Detection:</b> Monitor systems for suspicious activities.</li>
+                <li><b>Containment:</b> Isolate affected systems to prevent spread.</li>
+                <li><b>Eradication:</b> Remove the root cause of the attack.</li>
+                <li><b>Recovery:</b> Restore systems and data from backups.</li>
+                <li><b>Lessons Learned:</b> Analyze the attack and improve defenses.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>References</h2>
+            <ul>
+                <li><a href="https://www.cybersecurity.gov/" target="_blank">Cyber Security Official Website</a></li>
+                <li><a href="https://www.cisa.gov/" target="_blank">Cybersecurity and Infrastructure Security Agency (CISA)</a></li>
+                <li><a href="https://www.kaspersky.com/resource-center" target="_blank">Kaspersky Resource Center</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <a href="courses.html" class="back-btn">Back to Courses</a>
+    </footer>
+</body>
+</html>

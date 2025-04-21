@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #4CAF50;
+            padding: 1rem 0;
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #4CAF50;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #e8e8e8;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #4CAF50;
+            overflow-x: auto;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-btn:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Data Science Course</h1>
+    </header>
+
+    <main>
+        <div class="content-section">
+            <h2>Introduction to Data Science</h2>
+            <p>Data Science is a multidisciplinary field that combines programming, statistical analysis, and domain expertise to extract meaningful insights from data. It is widely used in various industries like healthcare, finance, and technology.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Topics Covered</h2>
+            <ul>
+                <li>Data Collection and Cleaning</li>
+                <li>Exploratory Data Analysis (EDA)</li>
+                <li>Statistical Analysis</li>
+                <li>Data Visualization</li>
+                <li>Machine Learning</li>
+                <li>Deep Learning</li>
+                <li>Big Data and Cloud Computing</li>
+                <li>Model Deployment and Monitoring</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Data Collection and Cleaning</h2>
+            <p>Data collection involves gathering raw data from various sources such as databases, APIs, and web scraping. Data cleaning is the process of removing or correcting inaccurate, incomplete, or irrelevant data.</p>
+            <pre>
+<code>// Example: Handling missing values in Python
+import pandas as pd
+
+data = {'Name': ['Alice', 'Bob', None], 'Age': [25, None, 30]}
+df = pd.DataFrame(data)
+# Fill missing values
+df['Age'].fillna(df['Age'].mean(), inplace=True)
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Exploratory Data Analysis (EDA)</h2>
+            <p>EDA involves summarizing the main characteristics of data, often using visualizations. It helps in identifying patterns, anomalies, and relationships within the data.</p>
+            <pre>
+<code># Example: Visualizing data distribution
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.histplot(df['Age'], kde=True)
+plt.title('Age Distribution')
+plt.show()
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Statistical Analysis</h2>
+            <p>Statistical analysis is used to derive insights from data using statistical tests, measures of central tendency, and variability. It helps in making informed decisions.</p>
+            <pre>
+<code># Example: Calculating mean and standard deviation
+mean_age = df['Age'].mean()
+std_age = df['Age'].std()
+print(f"Mean: {mean_age}, Standard Deviation: {std_age}")
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Data Visualization</h2>
+            <p>Data visualization involves creating graphical representations of data to make it easier to understand and interpret.</p>
+            <pre>
+<code># Example: Creating a bar chart
+categories = ['A', 'B', 'C']
+values = [10, 20, 15]
+
+plt.bar(categories, values)
+plt.title('Category Distribution')
+plt.show()
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Machine Learning</h2>
+            <p>Machine Learning involves building models that can learn from data to make predictions or decisions without being explicitly programmed.</p>
+            <pre>
+<code># Example: Linear regression using scikit-learn
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+
+X = df[['Age']]
+y = df['Salary']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+model = LinearRegression()
+model.fit(X_train, y_train)
+print("Model Coefficients:", model.coef_)
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Deep Learning</h2>
+            <p>Deep Learning uses neural networks to model complex patterns in data, often used in tasks like image recognition and natural language processing.</p>
+            <pre>
+<code># Example: Creating a simple neural network with TensorFlow
+import tensorflow as tf
+
+model = tf.keras.Sequential([
+    tf.keras.layers.Dense(128, activation='relu'),
+    tf.keras.layers.Dense(1)
+])
+
+model.compile(optimizer='adam', loss='mean_squared_error')
+model.fit(X_train, y_train, epochs=10)
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Big Data and Cloud Computing</h2>
+            <p>Big Data involves handling large datasets that cannot be processed on a single machine. Cloud computing provides scalable resources for data storage and processing.</p>
+            <pre>
+<code># Example: Using PySpark for Big Data processing
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder.appName('Data Science').getOrCreate()
+df = spark.read.csv('data.csv', header=True, inferSchema=True)
+df.show()
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Model Deployment and Monitoring</h2>
+            <p>Deploying machine learning models involves making them available for use in production. Monitoring ensures the model continues to perform well over time.</p>
+            <pre>
+<code># Example: Saving and loading a model
+import joblib
+
+joblib.dump(model, 'model.pkl')
+loaded_model = joblib.load('model.pkl')
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>References</h2>
+            <ul>
+                <li><a href="https://www.kaggle.com/" target="_blank">Kaggle</a></li>
+                <li><a href="https://scikit-learn.org/" target="_blank">Scikit-learn Documentation</a></li>
+                <li><a href="https://www.tensorflow.org/" target="_blank">TensorFlow</a></li>
+                <li><a href="https://spark.apache.org/" target="_blank">Apache Spark</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <a href="courses.html" class="back-btn">Back to Courses</a>
+    </footer>
+</body>
+</html>

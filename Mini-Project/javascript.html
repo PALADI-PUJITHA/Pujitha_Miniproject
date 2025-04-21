@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #4CAF50;
+            padding: 1rem 0;
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color:  #4CAF50;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #e8e8e8;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid  #4CAF50;
+            overflow-x: auto;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color:  #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-btn:hover {
+            background-color:  #4CAF50;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>JavaScript Course</h1>
+    </header>
+
+    <main>
+        <div class="content-section">
+            <h2>Introduction</h2>
+            <p>JavaScript is a versatile programming language used for web development to add interactivity to websites.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Basic Syntax</h2>
+            <p>JavaScript syntax is the set of rules for how JavaScript programs are constructed.</p>
+            <pre>
+<code>
+console.log("Hello, World!"); // Print to the console
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Comments</h2>
+            <p>Comments in JavaScript:</p>
+            <pre>
+<code>
+// This is a single-line comment
+/* This is a 
+multi-line comment */
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Variables</h2>
+            <p>Variables are declared using <code>var</code>, <code>let</code>, or <code>const</code>:</p>
+            <pre>
+<code>
+let name = "John";
+const age = 30;
+var isStudent = true;
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Operators</h2>
+            <p>JavaScript supports various operators like arithmetic, comparison, and logical operators:</p>
+            <pre>
+<code>
+let sum = 10 + 20;
+let isEqual = (10 === 20);
+let isTrue = (10 > 5 && 20 > 10);
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Data Types</h2>
+            <p>Common data types in JavaScript:</p>
+            <ul>
+                <li>String</li>
+                <li>Number</li>
+                <li>Boolean</li>
+                <li>Object</li>
+                <li>Array</li>
+                <li>Undefined</li>
+                <li>Null</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Functions</h2>
+            <p>Functions are blocks of reusable code:</p>
+            <pre>
+<code>
+function greet(name) {
+    return `Hello, ${name}`;
+}
+console.log(greet("Alice"));
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Strings</h2>
+            <p>Strings are sequences of characters:</p>
+            <pre>
+<code>
+let greeting = "Hello, World!";
+console.log(greeting.length);
+console.log(greeting.toUpperCase());
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Arrays</h2>
+            <p>Arrays are used to store multiple values:</p>
+            <pre>
+<code>
+let fruits = ["Apple", "Banana", "Cherry"];
+console.log(fruits[1]);
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Conditional Statements</h2>
+            <p>Control the flow of your program:</p>
+            <pre>
+<code>
+if (age > 18) {
+    console.log("Adult");
+} else {
+    console.log("Minor");
+}
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Looping Statements</h2>
+            <p>Perform repetitive tasks:</p>
+            <pre>
+<code>
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>JavaScript Objects</h2>
+            <p>Objects store properties and methods:</p>
+            <pre>
+<code>
+let person = {
+    name: "John",
+    age: 30,
+    greet: function() {
+        console.log("Hello, " + this.name);
+    }
+};
+person.greet();
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Classes</h2>
+            <p>Define reusable templates for objects:</p>
+            <pre>
+<code>
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    greet() {
+        console.log(`Hello, ${this.name}`);
+    }
+}
+let john = new Person("John", 30);
+john.greet();
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>JavaScript HTML DOM</h2>
+            <p>Interact with HTML elements:</p>
+            <pre>
+<code>
+document.getElementById("demo").innerText = "Hello, World!";
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Browser BOM</h2>
+            <p>Access browser objects:</p>
+            <pre>
+<code>
+console.log(window.innerWidth);
+alert("Welcome to JavaScript!");
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>Web APIs</h2>
+            <p>Utilize APIs like Fetch and Geolocation:</p>
+            <pre>
+<code>
+navigator.geolocation.getCurrentPosition(position => {
+    console.log(position.coords.latitude);
+});
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>AJAX</h2>
+            <p>Communicate with servers:</p>
+            <pre>
+<code>
+fetch("https://api.example.com/data")
+    .then(response => response.json())
+    .then(data => console.log(data));
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>JSON</h2>
+            <p>Exchange data between server and client:</p>
+            <pre>
+<code>
+let jsonData = '{"name": "John", "age": 30}';
+let obj = JSON.parse(jsonData);
+console.log(obj.name);
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>jQuery</h2>
+            <p>jQuery simplifies JavaScript tasks:</p>
+            <pre>
+<code>
+$(document).ready(function() {
+    $("#demo").text("Hello, jQuery!");
+});
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>JavaScript Graphics</h2>
+            <p>Work with graphics using Canvas:</p>
+            <pre>
+<code>
+let canvas = document.getElementById("myCanvas");
+let ctx = canvas.getContext("2d");
+ctx.fillStyle = "blue";
+ctx.fillRect(0, 0, 150, 75);
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>References</h2>
+            <ul>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">MDN Web Docs: JavaScript</a></li>
+                <li><a href="https://www.w3schools.com/js/" target="_blank">W3Schools: JavaScript Tutorial</a></li>
+                <li><a href="https://javascript.info/" target="_blank">JavaScript.info</a></li>
+                <li><a href="https://jquery.com/" target="_blank">jQuery Official Website</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <a href="courses.html" class="back-btn">Back to Courses</a>
+    </footer>
+</body>
+</html>

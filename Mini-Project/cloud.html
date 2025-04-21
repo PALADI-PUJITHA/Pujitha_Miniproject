@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Computing Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #4CAF50;
+            padding: 1rem 0;
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #4CAF50;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #e8e8e8;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #4CAF50;
+            overflow-x: auto;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-btn:hover {
+            background-color: #45A049;
+        }
+
+        a {
+            color: #007ACC;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cloud Computing Course</h1>
+    </header>
+
+    <main>
+        <div class="content-section">
+            <h2>Introduction to Cloud Computing</h2>
+            <p>Cloud computing refers to the delivery of computing services over the internet, enabling on-demand access to resources like servers, storage, databases, networking, and software.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Key Features of Cloud Computing</h2>
+            <ul>
+                <li><strong>On-Demand Self-Service:</strong> Users can access resources as needed without manual intervention.</li>
+                <li><strong>Broad Network Access:</strong> Resources are accessible via standard devices like smartphones, tablets, and laptops.</li>
+                <li><strong>Resource Pooling:</strong> Computing resources are pooled to serve multiple users.</li>
+                <li><strong>Scalability:</strong> Quickly scale resources up or down as per demand.</li>
+                <li><strong>Measured Service:</strong> Pay-as-you-go pricing based on usage.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Cloud Service Models</h2>
+            <p>The three primary service models are:</p>
+            <ul>
+                <li><strong>IaaS (Infrastructure as a Service):</strong> Provides virtualized computing resources over the internet.</li>
+                <li><strong>PaaS (Platform as a Service):</strong> Delivers tools and environments for application development and deployment.</li>
+                <li><strong>SaaS (Software as a Service):</strong> Offers software applications over the internet on a subscription basis.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Types of Cloud Deployment Models</h2>
+            <ul>
+                <li><strong>Public Cloud:</strong> Services are available to the general public over the internet.</li>
+                <li><strong>Private Cloud:</strong> Dedicated to a single organization for exclusive use.</li>
+                <li><strong>Hybrid Cloud:</strong> Combines public and private clouds for a flexible infrastructure.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Benefits of Cloud Computing</h2>
+            <ul>
+                <li>Cost Efficiency</li>
+                <li>Global Reach</li>
+                <li>Flexibility and Scalability</li>
+                <li>Disaster Recovery</li>
+                <li>Enhanced Collaboration</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Example: Launching a Virtual Machine</h2>
+            <p>Here is an example of launching a virtual machine using AWS CLI:</p>
+            <pre>
+<code>
+aws ec2 run-instances \
+    --image-id ami-0abcdef1234567890 \
+    --count 1 \
+    --instance-type t2.micro \
+    --key-name MyKeyPair \
+    --security-group-ids sg-903004f8 \
+    --subnet-id subnet-6e7f829e
+</code>
+            </pre>
+        </div>
+
+        <div class="content-section">
+            <h2>References</h2>
+            <ul>
+                <li><a href="https://aws.amazon.com/what-is-cloud-computing/" target="_blank">AWS: What is Cloud Computing?</a></li>
+                <li><a href="https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/" target="_blank">Microsoft Azure: Cloud Computing Dictionary</a></li>
+                <li><a href="https://www.ibm.com/cloud/learn/cloud-computing" target="_blank">IBM Cloud: Learn Cloud Computing</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <a href="courses.html" class="back-btn">Back to Courses</a>
+    </footer>
+</body>
+</html>

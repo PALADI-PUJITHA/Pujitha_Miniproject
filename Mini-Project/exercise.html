@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .quiz-section {
+            margin: 20px 0;
+        }
+
+        .quiz-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .quiz {
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .quiz .question {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .quiz .options {
+            margin-bottom: 20px;
+        }
+
+        .quiz .options label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 200px;
+            margin: 20px auto;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exercise Page</h1>
+        <p>Select a course to start the quiz:</p>
+
+        <select id="courseSelector" onchange="loadQuiz()">
+            <option value="">-- Select a Course --</option>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="javascript">JavaScript</option>
+            <option value="c">C</option>
+            <option value="cpp">C++</option>
+            <option value="java">Java</option>
+            <option value="sql">SQL</option>
+            <option value="python">Python</option>
+            <option value="php">Php</option>
+            <option value="bootstrap">Bootstrap</option>
+            <option value="cloud">Cloud Computing</option>
+            <option value="excel">Excel</option>
+            <option value="mysql">MySQL</option>
+            <option value="cybersecurity">Cyber Security</option>
+            <option value="datascience">Data Science</option>
+            <option value="dsa">DSA</option>
+        </select>
+
+        <div id="quizContainer" class="quiz-section">
+            <h2 id="courseTitle"></h2>
+            <div id="quizContent" class="quiz"></div>
+            <button class="submit-btn" onclick="submitAnswers()">Submit Answers</button>
+            <div id="result" class="result"></div>
+        </div>
+    </div>
+
+    <script>
+        const quizzes = {
+    html: [
+        { question: "What does HTML stand for?", options: ["Hyper Text Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language","None of the above"], correct: 0 },
+        { question: "What attribute is used to provide an alternative text for an image?", options: ["alt", "src", "href", "title"], correct: 0 },
+        { question: "Which attribute is used to specify the URL in a hyperlink?", options: ["alt", "href", "URL", "src"], correct: 1},
+        { question: "Which HTML element is used to play audio files?", options: ["title", "href", "URL", "src"], correct: 1},
+        { question: "What attribute should be added to a link to open it in a new tab?", options: ["target='_blank'", "tab='_new'", "new tab", "open"], correct: 0},
+        { question: "What is the correct syntax for an HTML comment?", options: ["!-- This is a comment --", "// This is a comment", "/* This is a comment */", " # This is a comment"], correct: 0 },
+        { question: "What is the extension for html file",options: [".html",".htm","both above two","None of the above"], correct:2 },
+        { question: "Which tag is used for the largest heading in HTML?",options: ["h3","h1","h5","h6"]},
+        { question: "What is the purpose of the alt attribute in the img tag?",options: ["To add a tooltip","To provide alternative text if the image cannot load","To align the image","To change the image size"], correct: 1},
+        { question: "Which tag is used to define a table row?",options: ["th","td","tr","table"],correct: 2},
+        { question: "What is the default alignment for text in an HTML paragraph?",options: ["center","right","left","justified"],correct: 2},
+        { question: "Which tag is used to define a clickable button in HTML?",options: ["input","button","click","form"],correct: 1},
+        { question: "What is the correct HTML tag for inserting a line break?",options: ["br","break","lb","newline"],correct: 0},
+        { question: "Which HTML tag is used to define emphasized text?",options: ["bold","em","strong","i"],correct: 1},
+        { question: "What is the correct HTML element for playing audio files?",options: ["sound","audio","mp3","music"],correct: 1},
+    ],
+    css: [
+    { question: "What does CSS stand for?", options: ["Cascading Style Sheets", "Creative Style Sheets", "Computer Style Sheets", "Color Shaped Sheets"], correct: 0 },
+    { question: "Which property is used to change the background color?", options: ["color", "background-color", "bgcolor", "font-color"], correct: 1 },
+    { question: "Which CSS property controls text size?", options: ["font-style", "text-size", "font-size", "All the above"], correct: 2 },
+    { question: "Which property is used to make the text bold?", options: ["font-weight", "font-style", "text-decoration", "text-underline"], correct: 0 },
+    { question: "How do you select an element with id 'header'?", options: ["#header", ".header", "header", "*header"], correct: 0 },
+    { question: "What is the correct syntax to apply a class named 'box' in CSS?", options: [".box{}", "#box{}", "box{}", "@box{}"], correct: 0 },
+    { question: "Which property is used to set the background color in CSS?", options: ["background-image", "background-color", "bg-color", "color-background"], correct: 1 },
+    { question: "What is the purpose of the z-index property in CSS?", options: ["To add a shadow effect", "To set the stacking order of elements", "To specify the size of an element", "To control the visibility of an element"], correct: 1 },
+    { question: "How can you make a website element semi-transparent in CSS?", options: ["Use the visibility property", "Set the opacity property", "Adjust the color property", "Use the background-opacity property"], correct: 1 },
+    { question: "Which of the following is NOT a valid position value in CSS?", options: ["fixed", "relative", "sticky", "float"], correct: 3 },
+    { question: "How do you apply a CSS rule to an element with an ID of 'header'?", options: ["header {}", ".header {}", "#header {}", "@header {}"], correct: 2 },
+    { question: "Which property is used to control the spacing between lines of text?", options: ["letter-spacing", "line-spacing", "line-height", "txt-spacing"], correct: 2 },
+    { question: "What does the !important declaration in CSS do?", options: ["Removes all other styles from the element", "Overrides any other conflicting rules for the same property", "Applies a style to all child elements", "Ensures the style only applies when in focus"], correct: 1 },
+    { question: "Which property is used to round the corners of an element?",options:["border-radius","corner-radius","round-corners","border-style"] ,correct:0 },
+    { question: " What is the default position value of an HTML element?",options:["static","relative","absolute","fixed"],correct: 0},
+    ],   
+    javascript: [
+        { question: "Which company developed JavaScript?", options: ["Mozilla", "Netscape", "Sun Microsystems","Microsoft"], correct: 1 },
+        { question: "What does '===' signify in JavaScript?", options: ["Equality without type conversion", "Equality with type conversion", "Assignment","All the above"], correct: 0 },
+        { question: "What is used to declare a variable in JavaScript?", options: ["var", "let", "const","final"], correct: 0 },
+        { question: "How can you add a comment in JavaScript?", options: ["<!-- Comment -->", "// Comment", "** Comment **","None of the above"], correct: 1 },
+        { question: "What is an array in JavaScript?", options: ["A single value", "A collection of values", "A variable","a function"], correct: 1 },
+        { question: "Which method is used to remove the last element from an array?", options: ["remove()", "push()", "pop()","shift()"], correct: 2},
+        { question: "What is the difference between == and === in JavaScript?", options: ["== checks value, while === checks value and type.","== checks value with === checks value only","Both are the same","None of the above"], correct: 0 },
+        { question: "What does setTimeout do in JavaScript?", options: ["It pauses the execution of the code.", "It schedules code to run after a delay.", " It stops the program completely.","It runs code immediately."], correct: 1 },
+        { question: "What is a closure in JavaScript?", options: ["A function bundled with its lexical environment.", "A function that runs only once.", "A function with no parameters.","None of the above."], correct: 0 },
+        { question: "What is the difference between let and var?", options: ["let is block-scoped, while var is function-scoped.", "let is function-scoped, while var is block-scoped.", "var does not allow redeclaration, while let does."," No difference."], correct: 0 },
+        { question: "What is the purpose of the bind method in JavaScript?", options: ["To bind an event to an element.", "To create a new function with a specific this value.", "To create a copy of a function.","To bind two arrays together."], correct: 1 },
+        { question: "Which of the following is a valid way to create an array in JavaScript?", options: ["let arr = [];", "let arr = new Array();", "let arr = Array();","All of the above"], correct: 3},
+        { question: "What is the default value of a variable declared with let but not initialized?", options: ["0", "null", "undefined","error"], correct: 2},
+        { question: "What is the result of Boolean()", options: ["true", "false", "undefined","error"], correct: 1},
+        { question: "Which function is used to convert a string to an integer?", options: ["parseInt()", "parseFloat()","Number()","toInteger()"], correct: 0 },
+    ],
+    c: [
+        { question: "Which of the following is used to declare a variable in C?", options: ["int", "let", "var", "declare"], correct: 0 },
+        { question: "Which library is required to use the printf function?", options: ["stdlib.h", "string.h", "stdio.h", "math.h"], correct: 2 },
+        { question: "Which keyword is used to prevent a variable from being modified?", options: ["static", "const", "volatile", "register"], correct: 1 },
+        { question: "Which of the following is not a valid data type in C?", options: ["float", "int", "string", "char"], correct: 2 },
+        { question: "How do you dynamically allocate a 2D array in C?", options: ["Using malloc for both rows and columns.", "Using calloc for rows only.", "Using realloc.", "C does not support dynamic memory allocation."], correct: 0 },
+        { question: "Which symbol is used to end a statement in C?", options: [".(dot)", ",(comma)", ";(semicolon)", ":(colon)"], correct: 2 },
+        { question: "Which function is used to read input from the user in C?", options: ["input()", "get()", "scanf()", "read()"], correct: 2 },
+        { question: "Which loop is guaranteed to execute at least once in C?", options: ["for", "while", "do-while", "None"], correct: 2 },
+        { question: "Which of the following is not a valid storage class in C?", options: ["auto", "mutable", "static", "register"], correct: 1 },
+        { question: "What does the sizeof operator do in C?", options: ["Returns the size of a variable or data type in bits.", " Returns the size of a variable or data type in bytes.", "Returns the number of elements in an array.", "Returns the length of a string."], correct: 1 },
+        { question: "What is the purpose of the continue statement in C?", options: ["Terminates the loop and exits.", "Skips the remaining code in the loop for the current iteration.", "Restarts the loop from the beginning.", "Exit from the program"], correct: 1 },
+        { question: "What is a pointer in C?", options: ["A variable that stores an integer value.", "A variable that stores the address of another variable.", "A special type of function.", "A reference to an array."], correct: 1 },
+        { question: "Which library function is used to find the length of a string in C?", options: ["strlen()", "strlength()", "length()", "strsize()"], correct: 0 },
+        { question: "Which of the following is used to declare a constant in C?", options: ["const", "define", "both two", "None"], correct: 2 },
+        { question: "Which of the following is the correct syntax for a for loop in C?", options: ["for (i = 0, i < 10, i++)", "for (i = 0; i < 10, i++)", "for (i = 0; i < 10; i++)", "for i in range(0, 10)"], correct: 2 },
+    ],
+    cpp: [
+        { question: "What is C++ commonly known as?", options: ["A functional programming language", " A procedural programming language", " An object-oriented programming language", "A low-level programming language"], correct: 2 },
+        { question: "Which of the following is used to create an object of a class?", options: ["class", "object", "new", "constructor"], correct: 3},
+        { question: "What is the correct way to declare a pointer in C++?", options: ["int ptr*;", "int* ptr;", "ptr int;", "int& ptr;"], correct: 1 },
+        { question: "Which operator is used to access a class member through a pointer?", options: [".", "->", "*", "&"], correct: 1},
+        { question: "Which keyword is used to handle exceptions in C++?", options: ["throw", "try", "catch", "All of the above"], correct: 3},
+        { question: "Which type of inheritance does C++ support?", options: ["Single and multiple inheritance", "Single and multilevel inheritance", "Only single inheritance", " Single, multilevel, and multiple inheritance"], correct: 3},
+        { question: "What is the purpose of the virtual keyword in C++?", options: [" To declare a variable", "To allow runtime polymorphism", "To allocate memory dynamically", "To create a pointer"], correct: 1},
+        { question: "Which of the following correctly declares a class in C++?", options: ["class MyClass { };", "MyClass class { };", "declare class MyClass { };", "object MyClass { };"], correct: 0},
+        { question: "Which of the following is not a valid access specifier in C++?", options: ["public", "private", "internal", "protect"], correct: 2},
+        { question: "What is the use of the new keyword in C++?", options: ["To create a new class", "To allocate memory dynamically", "To deallocate memory", "To override a function"], correct: 1},
+        { question: "Which of the following is not a feature of C++?", options: ["Polymorphism", "Encapsulation", "Automatic garbage collection", "Inheritance"], correct: 2},
+        { question: "What will happen if a pointer is deleted twice?", options: ["It will free the memory again.", "It will cause a runtime error.", "It will corrupt the memory.", "It will throw an exception."], correct: 1},
+        { question: "What is the purpose of the friend keyword in C++?", options: ["To allow a class to access private members of another class", "To declare a function inside a class", "To create an external variable", " To allow multiple inheritance"], correct: 0},
+        { question: "What does STL stand for in C++?", options: ["Standard Template Library", "Standard Text Library", " Simple Template Library", "Simple Text Library"], correct: 0},
+        { question: "What is the size of an int on a typical 32-bit compiler?", options: [" 2 bytes", "4 bytes", " 1 bytes", " 8 bytes"], correct: 1},
+    ],
+    java: [
+        { question: "Which of the following is a valid keyword in Java?", options: ["interface", "String", "Float", "unsigned"], correct: 0},
+        { question: "What is the default value of a local variable in Java?", options: ["null", "0", " Depends on the data type", "Local variables do not have a default value"], correct: 3 },
+        { question: "Which method is used to start a thread in Java?", options: ["run()", "start()", "execute()", "init()"], correct: 1 },
+        { question: "What is the size of an int in Java?", options: ["2 bytes", "4 bytes", "8 bytes", "depend on the platform"], correct: 1},
+        { question: "Which of the following is not a feature of Java?", options: [" Object-oriented", "Platform-independent", "Use of pointers", "Automatic garbage collection"], correct: 2 },
+        { question: "Which of these is not a Java access modifier?", options: ["public", "private", "internal", "protect"], correct: 2},
+        { question: "What is the purpose of the final keyword in Java?", options: ["To define constants", " To prevent inheritance", " To prevent method overriding", "All of the above"], correct: 3},
+        { question: "Which of the following is true about Java?", options: [" Java is platform-dependent.", "Java uses explicit memory management.", " Java supports multiple inheritance through classes.", " Java supports multiple inheritance through interfaces."], correct: 3},
+        { question: "Which of the following is a valid declaration of an array in Java?", options: ["int[] arr;", "int arr[];", "int arr[10];", "both one and two"], correct: 3},
+        { question: "What is the return type of the hashCode() method in Java?", options: ["String", "object", "int", "boolean"], correct: 2},
+        { question: "Which of the following statements is true for Java?", options: ["Java supports operator overloading.", "Java does not support operator overloading.", " Java supports explicit pointers.", "Java allows multiple inheritance through classes."], correct: 1},
+        { question: "What is the default value of a boolean in Java?", options: ["null", "0", "true", "false"], correct: 3},
+        { question: "Which exception is thrown when dividing by zero in Java?", options: ["IOException", "ArithmeticException", "NullPointerException", "ClassNotFoundException"], correct: 1},
+        { question: "What is the purpose of the super keyword in Java?", options: ["To call the superclass constructor", "To call a superclass method", "To access a superclass variable", " All of the above"], correct: 3},
+        { question: "Which of the following is not part of Java's OOP principles?", options: ["Pointer Arithmetic", "Encapsulation", "Abstraction", "Inheritance"], correct: 0},
+    ],
+    sql: [
+        { question: "What does SQL stand for?", options: ["Structured Query Language", "Simple Query Language", "Standard Query Logic", "Sequential Query Language"], correct: 0},
+        { question: "Which SQL statement is used to retrieve data from a database?", options: ["get", "fetch", " select", "retrieve"], correct: 2},
+        { question: "How do you select all columns from a table named employees?", options: ["SELECT employees FROM *;", "SELECT * FROM employees;","GET * FROM employees;", "FETCH ALL FROM employees;"], correct: 1 },
+        { question: "Which keyword is used to sort the results in ascending order?", options: ["ORDER", "ASCEND", "ASC", "SORT"], correct: 2},
+        { question: "What is the difference between WHERE and HAVING in SQL?", options: [" WHERE filters rows before grouping,HAVING filters groups.", " HAVING filters rows before grouping, WHERE filters groups.", "Both are the same.","WHERE is faster than HAVING in all cases."], correct: 0 },
+        { question: "How do you remove duplicate rows from a result set?", options: ["SELECT DISTINCT", "SELECT UNIQUE", "SELECT DISTINCTROW", "SELECT WITHOUT DUPLICATES"], correct: 0},
+        { question: "What is the purpose of the JOIN clause in SQL?", options: ["To combine rows from two or more tables based on a related column.", " To merge two databases.", " To fetch only unique records.", " To group results in a query."], correct: 0},
+        { question: "Which of the following is a valid SQL constraint?", options: [" INDEX","UNIQUE", "LIMIT", "ROWLOCK"], correct: 1},
+        { question: "What does the GROUP BY statement do?", options: ["Orders the rows by a specific column.", "Combines multiple rows with the same value in a specific column into a single row.", "Deletes duplicate rows.", "Filters rows in a table."], correct: 1},
+        { question: "What is a subquery in SQL?", options: [" A query that runs faster than a regular query.", "A query that appears inside another SQL query.", " A query used to alter table structure.", "A query that runs only on certain database engines."], correct: 1},
+        { question: "How do you fetch the 5th highest salary from a table named employees?", options: ["Use SELECT DISTINCT salary FROM employees ORDER BY salary DESC LIMIT 4, 1;", "Use SELECT MAX(salary) FROM employees LIMIT 5;", " Use SELECT salary FROM employees ORDER BY salary ASC LIMIT 1, 5;", " Use SELECT TOP 5 salary FROM employees ORDER BY salary DESC;"], correct: 0},
+        { question: "What does the ROLLBACK statement do in a transaction?", options: [" Saves the changes made by the transaction.", " Cancels all changes made by the transaction.", "Updates the database schema.", "Deletes data from the table."], correct: 1},
+        { question: "What is the purpose of an INDEX in SQL?", options: ["To speed up data retrieval operations on a database table.", "To ensure data integrity.", "To store large amounts of data.", "To combine rows from multiple tables."], correct: 0},
+        { question: "How do you fetch the current date and time in SQL?", options: ["SELECT NOW();", " SELECT CURRENT_TIME();", "SELECT GETDATE();", "SELECT GETDATE();"], correct: 3},
+        { question: "Which command is used to create a new table in SQL?", options: ["CREATE TABLE", "NEW TABLE", "ADD TABLE", "MAKE TABLE"], correct: 0},
+    ],
+    python: [
+        { question: "What is the correct file extension for Python files?", options: [".py", ".python", ".pyth",".pt"], correct: 0 },
+        { question: "Which of the following is a valid variable name in Python?", options: ["1variable", "variable_1", "variable-1","variable 1"], correct: 1 },
+        { question: "Which keyword is used to define a function in Python?", options: ["func", "define", "def","function"], correct: 2 },
+        { question: "How do you insert an element at index 2 in a list my_list?", options: ["my_list[2] = element", "my_list.add(2, element)", "my_list.insert(2, element)","my_list.append(2, element)"], correct: 2 },
+        { question: "Which of the following is NOT a valid data type in Python?", options: ["tuple", "set", "array","integer"], correct: 2 },
+        { question: "What does the is operator do in Python?", options: ["Checks if a variable is initialized.", "Checks if two objects are of the same type.", "Checks if two objects have the same value.","Checks if two objects are the same."], correct: 3 },
+        { question: "Which method is used to handle exceptions in Python", options: ["try-except", "throw-catch", " error-checking","catch-finally"], correct: 0 },
+        { question: "What does the @staticmethod decorator do?", options: ["b) Makes a method private to the class.", "Makes a method available for inheritance.", "Makes a method static so it can be called without an instance of the class.","Makes a method synchronous."], correct: 2 },
+        { question: "What is the correct way to create a dictionary in Python?", options: ["{key1: value1, key2: value2}", "[key1: value1, key2: value2]", "{key1 = value1, key2 = value2}","(key1: value1, key2: value2)"], correct: 0 },
+        { question: "Which of the following is NOT a valid keyword in Python", options: ["yield", "async", "await","include"], correct: 3 },
+        { question: "Which function is used to read a single line of input from the user?", options: ["scan()", "get()", "input()","read()"], correct: 2 },
+        { question: "Which of the following methods is used to remove an item from a list by its index?", options: ["remove()", "pop()", "delete()","clear()"], correct: 1 },
+        { question: "What does the lambda keyword do in Python?", options: ["Creates a temporary anonymous function.", "Declares a variable", "Defines a class","Start a loop"], correct: 0 },
+        { question: "Which module is used to handle date and time in Python?", options: ["datetime", "time", "calendar","All of the above"], correct: 3 },
+        { question: "How do you generate random numbers in Python?", options: ["Using the random module", "Using the math module", " Using the os module","Using the randomize module"], correct: 0 },
+    ],
+    php: [
+        { question: "What does PHP stand for?", options: ["Personal Home Page", "PHP Hypertext Processor", "Preprocessor Hypertext Processor","Programming Home Page"], correct: 1 },
+        { question: "Which symbol is used to start a PHP variable?", options: ["$", "@", "&","#"], correct: 0 },
+        { question: "Which of the following is the correct way to end a PHP statement?", options: [".", ",", ";",":"], correct: 2 },
+        { question: "How do you insert a comment in PHP code?", options: ["/* Comment */", "// Comment", "# Comment","All the above"], correct: 3 },
+        { question: "Which function is used to output text in PHP?", options: ["echo", "print", "printf","All ofthe above"], correct: 3 },
+        { question: "What is the default file extension for PHP files?", options: [".html", ".txt", ".php",".xml"], correct: 2 },
+        { question: "Which of the following is used to get the length of a string in PHP?", options: ["strlen()", "strlength()", "count()","sizeof()"], correct: 0 },
+        { question: "What will 10 % 3 return in PHP?", options: ["3", "1", "10","None of the above"], correct: 1 },
+        { question: "What does the isset() function do?", options: ["Checks if a variable is set and is not NULL", "Checks if a variable is NULL", " Checks if a variable is undefined","None of the above"], correct: 0 },
+        { question: "Which of the following methods can be used to retrieve form data sent using POST?", options: [" $_POST", "$_GET", "$_REQUEST","both above 1 and 2"], correct: 3 },
+        { question: "Which of the following will create a session in PHP?", options: ["session_start();", "session_create();", " session_init();","session_run();"], correct: 0 },
+        { question: "How can you check the data type of a variable in PHP?", options: ["gettype()", "var_dump()", "Both above two","None of the above"], correct: 2 },
+        { question: "Which of the following is a PHP loop structure?", options: ["for ", "forEach", "while","All of the above"], correct: 3 },
+        { question: "What does the die() function do in PHP?", options: ["Deletes a variable", "Stops script execution", "returns null","None of the above"], correct: 1 },
+        { question: "Which superglobal variable holds information about uploaded files?", options: ["$_FILES", "$_POST", "$_SERVER","$_SERVER"], correct: 0 },
+    ],
+    bootstrap: [
+        { question: "What is Bootstrap?", options: ["A JavaScript library", "A CSS framework", "A programming language","A database management tool"], correct: 1 },
+        { question: "Which company developed Bootstrap?", options: ["Google", "Facebook", "Microsoft","Twitter"], correct: 3 },
+        { question: "What is the latest version of Bootstrap as of 2023?", options: ["4", "5", "3","6"], correct: 1 },
+        { question: "Which of the following is the correct Bootstrap grid system class?", options: [".grid", ".row", " .col-*","both two and three"], correct: 3 },
+        { question: "Which class is used to make an image responsive in Bootstrap?", options: [".img-responsive", " .responsive-img", ".img-fluid"," .img-auto"], correct: 2 },
+        { question: "How do you create a button group in Bootstrap?", options: ["Use the class .btn-group", " Use the class .btn-cluster", " Use the class .group-btn","Use the class .btn-collection"], correct: 0 },
+        { question: "Which Bootstrap class is used to create a navbar?", options: [".navbar-default", ".navbar", ".nav-bar",".navbar-menu"], correct: 1 },
+        { question: "What does the Bootstrap class .d-flex do?", options: [" Applies flexbox to an element", "Sets the display to inline-block", " Hides an element","Adds a fixed width"], correct: 0 },
+        { question: "Which class is used to add a fixed header at the top of the page in Bootstrap?", options: [".header-fixed", ".fixed-top", " .sticky-header",".top-header"], correct: 1 },
+        { question: "How do you center a column in Bootstrap?", options: ["Use the class .center", "Use .mx-auto on the column", "Use .align-center","None of the above"], correct: 1 },
+        { question: "Which class can be used to add spacing between elements in Bootstrap?", options: [".spacer-*", ".space-*", ".m-* (margin) or .p-* (padding)",".gap-*"], correct: 2 },
+        { question: "What does the .order-* class in Bootstrap do?", options: ["Sets the column order in flexbox", "Adds a numeric order to lists", "Sorts table rows","Changes the stacking order of modals"], correct: 0 },
+        { question: "Which of the following classes can be used to make a table responsive?", options: [" .table-responsive", ".table-fluid", " .table-scrollable",".table-responsive-*"], correct: 0 },
+        { question: "How do you hide an element on all devices except small screens in Bootstrap?", options: [".d-none .d-sm-block", ".d-sm-hidden", " .hide-sm"," .visible-sm-only"], correct: 0 },
+        { question: "What is the purpose of the Bootstrap utility class .clearfix?", options: ["Adds padding around elements", "Prevents float-related layout issues", "Adds a border to floated elements","Removes margin from an element"], correct: 1 },
+    ],
+    cloud: [
+        { question: "What is cloud computing?", options: ["A type of computer hardware", "The practice of using a network of remote servers to store, manage, and process data", "A type of weather pattern","A programming language"], correct: 1 },
+        { question: "Which of the following is NOT a characteristic of cloud computing?", options: ["On-demand self-service", "Resource pooling", "High upfront costs","Broad network access"], correct: 2 },
+        { question: "What does SaaS stand for in cloud computing?", options: [" Software and Application Services", "software as a service", "software as solution","system as service"], correct: 1 },
+        { question: "Which of the following is an example of an Infrastructure as a Service (IaaS) provider?", options: ["Google Docs", "Amazon Web Services (AWS) EC2", "Salesforce","Microsoft Teams"], correct: 1 },
+        { question: "Which type of cloud is shared by multiple organizations with a shared concern?", options: ["Private Cloud", "public cloud", "community cloud","hybrid cloud"], correct: 2 },
+        { question: "Which of the following is a benefit of cloud computing?", options: ["Limited accessibility", "scalability", "Fixed storage capacity"," High capital expenses"], correct: 1 },
+        { question: "What does 'auto-scaling' refer to in cloud computing?", options: ["Automatically upgrading software", "Dynamically adjusting resource capacity based on demand", " Automatically changing passwords periodically"," Deploying applications on multiple platforms"], correct: 1 },
+        { question: "What is the main function of a Content Delivery Network (CDN) in cloud computing?", options: ["Performing data analytics", "Hosting applications", "managing databases","Distributing content closer to users to reduce latency"], correct: 3 },
+        { question: "Which of the following is an example of Platform as a Service (PaaS)?", options: ["Microsoft Azure App Services", "Dropbox", "slack","VMware vSphere"], correct: 0 },
+        { question: "Which cloud deployment model combines both private and public clouds?", options: ["public cloud", "private cloud", "hybrid cloud","multi cloud"], correct: 2 },
+        { question: "What is the role of virtualization in cloud computing?", options: ["To directly manage physical hardware", "To create virtual versions of physical resources", "To reduce the need for data encryption","To eliminate the need for networking"], correct: 1 },
+        { question: "Which protocol is commonly used for secure data transfer in cloud computing?", options: ["http", "https", "ftp","ssh"], correct: 1 },
+        { question: "Which of the following is NOT a major cloud service provider?", options: ["Amazon Web Services (AWS)", "Google cloud platform(GCP)", "adobe photoshop","Oracle cloud"], correct: 2 },
+        { question: "What is serverless computing?", options: [" A cloud service with no physical servers", "A method where the cloud provider automatically manages the infrastructure", "A computing model without any software","Aservice requiring no coding"], correct: 1 },
+        { question: "What is 'cloud bursting in cloud computing?", options: ["A process of splitting data between multiple clouds for security", "An arrangement where a private cloud handles normal workload but shifts to a public cloud during peak demand", "The ability to integrate different cloud services into one system","The ability to integrate different cloud services into one system"], correct: 1 },
+    ],
+    excel: [
+        { question: "What is the default file extension for Excel 2016 and later versions?", options: [".xls", ".xlsx", " .csv", " .xlsm"], correct: 1 },
+        { question: " Which symbol is used to start a formula in Excel?", options: ["=", "+", "@", "-"], correct: 0 },
+        { question: "What is the keyboard shortcut to save a workbook in Excel?", options: ["Ctrl + C", "Ctrl + z", "Ctrl + s", "Ctrl + p"], correct: 2 },
+        { question: "What function is used to calculate the sum of a range of cells?", options: ["AVERAGE", "COUNT", "SUM", "MAX"], correct: 2 },
+        { question: "Which feature in Excel allows you to apply a predefined set of formats to a range of cells?", options: ["Conditional Formatting", "Format painting", "cell styles", "Data validation"], correct: 2 },
+        { question: "How can you freeze the top row of a worksheet?", options: [" Go to View > Freeze Panes > Freeze Top Row", "Go to Data > Freeze Top Row", "Right-click the row and select Freeze", "Use Ctrl + F1"], correct: 0 },
+        { question: "What does the CONCATENATE function do?", options: ["Joins multiple text strings into one", "Multiplies two numbers", "Adds multiple numbers together", "Finds the average of numbers"], correct: 0 },
+        { question: "What is the shortcut to insert a new worksheet?", options: ["Ctrl + N", "Shift + F11", "Ctrl + W", "alt+enter"], correct: 1 },
+        { question: "What will the formula =IF(A1>10, 'Yes', 'No') return if A1 contains 8?", options: ["yes", "no", "true", "false"], correct: 1 },
+        { question: "Which feature allows you to create a dropdown list in a cell?", options: ["Data Validation.", " pivote table", "filter", "Conditional Formatting"], correct: 0 },
+        { question: "Which function would you use to find the largest value in a range that meets specific conditions?", options: ["MAXIF", "MAXIFS","SUMIF", "MAX"], correct: 1 },
+        { question: "What does a PivotTable allow you to do?", options: ["Perform basic calculations like SUM or AVERAGE", "Visualize data with charts", "Summarize and analyze data dynamically", "Apply conditional formatting to cells"], correct: 2 },
+        { question: "What is the purpose of the VLOOKUP function?", options: ["Looks for a value in a row and returns a corresponding column value", "Looks for a value in a column and returns a corresponding row value", "Sorts data in ascending or descending order", "Filters data in a table"], correct: 1 },
+        { question: " How do you reference a cell from another worksheet?", options: ["=Sheet1!A1", "=Sheet1:A1", "=Sheet1!A$1", "Sheet1_A1"], correct: 0 },
+        { question: " What does the formula =INDEX(A1:C10, 3, 2) return?", options: ["The value in the 3rd row and 2nd column of the range A1:C10", "The value in the 2nd row and 3rd column of the range A1:C10", "The sum of all values in the rang", " An error message"], correct: 0 },
+    ],
+    mysql: [
+        { question: "What is MySQL?", options: ["A relational database management system", "A programming language", "A relational database management system","A text editor"], correct: 2 },
+        { question: "Which SQL statement is used to retrieve data from a database?", options: ["select", "insert", "update","delete"], correct: 0 },
+        { question: "What is the correct syntax to create a database in MySQL?", options: ["CREATE DATABASE my_database;", "MAKE DATABASE my_database;", "NEW DATABASE my_database;","INIT DATABASE my_database;"], correct: 0 },
+        { question: "INIT DATABASE my_database;", options: ["Ensures that all values in a column are unique", "Ensures no NULL values and unique values in a column", "Allows NULL values in a column","Adds a default value to a column"], correct: 1 },
+        { question: " How do you add a column to an existing table in MySQL?", options: ["ADD COLUMN column_name TO table_name;", "ALTER TABLE table_name ADD column_name datatype;", "MODIFY TABLE table_name ADD COLUMN column_name;"," UPDATE TABLE table_name ADD column_name;"], correct: 1 },
+        { question: "Which clause is used to filter rows in a SELECT query?", options: ["where", "order by", "group by","having"], correct: 0 },
+        { question: "What is the purpose of the JOIN clause in MySQL?", options: ["Combine rows from two or more tables", "Filter rows based on a condition", "Delete data from multiple tables","Create a new table"], correct: 0 },
+        { question: "What is the default port number for MySQL?", options: ["8580", "1521", "1433","3306"], correct: 3 },
+        { question: "What will the query SELECT COUNT(*) FROM table_name; return?", options: ["The number of columns in the table", "The number of rows in the table", "The sum of all values in the table","The unique values in the table"], correct: 1 },
+        { question: "How can you retrieve the first 5 rows from a table in MySQL?", options: ["SELECT TOP 5 * FROM table_name;", "SELECT * FROM table_name LIMIT 5;", "SELECT FIRST 5 * FROM table_name;","SELECT * FROM table_name OFFSET 5;"], correct: 1 },
+        { question: "What is the purpose of the GROUP BY clause in MySQL?", options: ["To filter rows based on conditions", "To aggregate data based on a specific column", "To sort the data in ascending or descending order","To create a backup of a table"], correct: 1 },
+        { question: " Which function is used to get the current date and time in MySQL?", options: ["GETDATE()", " SYSDATE()", "NOW()","CURRENT_TIMESTAMP()"], correct: 2 },
+        { question: " What does the FOREIGN KEY constraint do?", options: [" Ensures values in a column are unique", " Links a column in one table to a primary key in another table", "Prevents NULL values in a column","Automatically updates a column with a default value"], correct: 1 },
+        { question: "What is a trigger in MySQL?", options: ["A type of join operation", "A query optimizer feature", "A mechanism to lock tables during transactions","A stored procedure that executes automatically in response to certain events"], correct: 3 },
+        { question: "What does the query CREATE INDEX idx_name ON table_name (column_name); do?", options: ["Deletes rows based on a condition", "Creates an index on the specified column to speed up queries", "Drops the specified column from the table","Creates a backup of the table"], correct: 1 },
+         
+    ],
+    cybersecurity: [
+        { question: "What is cybersecurity?", options: ["The study of planets", " Protection of internet-connected systems from cyber threats", " A method of programming","A type of computer hardware"], correct: 1 },
+        { question: "Which of the following is an example of a strong password?", options: ["Password123", "Cyber$ecure2025!", "123456","qwerty"], correct: 1 },
+        { question: "What does the acronym 'DDoS' stand for?", options: ["Direct Denial of Service", "Distributed Denial of Service", " Digital Denial of Service","Data Denial of Security"], correct: 1 },
+        { question: "Which of the following is NOT a type of malware?", options: [" Trojan", "virus", "worm","phishing"], correct: 3 },
+        { question: "What is the primary purpose of a firewall?", options: ["Detect and remove viruses", "Encrypt data", "Monitor and control incoming and outgoing network traffic","Scan for vulnerabilities"], correct: 2 },
+        { question: "What is the process of converting data into an unreadable format to prevent unauthorized", options: ["encoding", "encryption", "decoding","decryption"], correct: 1 },
+        { question: "Which of the following is an example of two-factor authentication?", options: ["Entering a password only", "Using a password and a PIN", " Using a password and a fingerprint","Using a username and password"], correct: 2 },
+        { question: "Which of the following is the most secure way to authenticate a user?", options: ["password only", "Two-factor authentication (2FA)", "CAPTCHA","Username and password"], correct: 1 },
+        { question: "What does the term 'phishing' refer to in cybersecurity?", options: ["Using a fishing net to block network signals", "Hacking into networks via ports", "Tricking users into providing sensitive information via fraudulent emails or websites","Creating fake antivirus software"], correct: 2 },
+        { question: "What type of malware locks users out of their systems and demands payment to restore access?", options: ["Ransomware", "Spyware", "Adware","Trojan"], correct: 0 },
+        { question: "What is a zero-day vulnerability?", options: ["A vulnerability that requires zero time to exploit", "A vulnerability that has been patched on the same day it was discovered", "A vulnerability that is unknown to the vendor and does not have a patch yet","A vulnerability that affects zero computers"], correct: 2 },
+        { question: "What is the primary function of a Virtual Private Network (VPN)?", options: ["Encrypt data for secure communication over public networks", "Scan for viruses and malware", "Detect phishing websites","Monitor internet usage"], correct: 0 },
+        { question: "Which type of cyber attack involves overwhelming a system with traffic to make it unavailable?", options: ["Man-in-the-Middle (MITM) attack", "Distributed Denial of Service (DDoS) attack", "SQL Injection"," Social engineering"], correct: 1 },
+        { question: "Which of these is an example of social engineering?", options: ["Using brute force to crack a password", "Sending fake emails to trick users into revealing credentials", "Installing keyloggers on a device","Exploiting vulnerabilities in a network"], correct: 1 },
+        { question: "What is the function of a honeypot in cybersecurity?", options: ["To attract attackers and study their behavior", "To monitor network bandwidth", "To remove malware from infected systems","To encrypt user data"], correct: 1 },
+        
+    ],
+    datascience: [
+    { question: "What is the main goal of Data Science?", options: [" To design user interfaces", " To analyze and interpret complex data", "To develop mobile apps","To manage network security"], correct: 1 },
+    { question: "Which of the following is NOT a programming language commonly used in Data Science?", options: ["python ", "R", "javascript","html"], correct: 3 },
+    { question: "What does the acronym 'ETL' stand for in Data Science?", options: ["Extract, Transform, Load", "Encrypt, Transfer, Load", "Extract, Translate, Learn","Evaluate, Train, Learn"], correct: 0 },
+    { question: "Which library in Python is used for data manipulation and analysis?", options: ["TensorFlow", "Pandas", "Matplotlib","Numpy"], correct: 1 },
+    { question: "What is a common method to handle missing data in a dataset?", options: ["Deleting the dataset", "Imputation", "Ignoring the missing data","Creating a new dataset"], correct: 1 },
+    { question: "Which of the following is an example of supervised learning?", options: ["Clustering", "lassification", "Dimensionality reduction","Association rule learning"], correct: 1 },
+    { question: "Which metric is commonly used to evaluate the performance of a regression model?", options: ["Accuracy", "precision", "Mean Squared Error (MSE)","F1 Score"], correct: 2 },
+    { question: "What type of plot is commonly used to visualize the distribution of a dataset?", options: ["Scatter plot", "Line plot", " Histogram","Bar Chart"], correct: 2 },
+    { question: "In machine learning, what is overfitting?", options: ["When the model performs well on training data but poorly on unseen data", "When the model performs poorly on both training and unseen data", "When the model is too simple to learn patterns","When the model is optimized for large datasets"], correct: 0 },
+    { question: "Which of the following tools is widely used for data visualization in Data Science?", options: ["Hadoop", "Git ", "Tableau","Docker"], correct: 2 },
+    { question: "Which of the following is a type of unsupervised learning algorithm?", options: ["Decision Trees", "Linear regression", "K-Means Clustering","Logistic Regression"], correct: 2 },
+    { question: "What is the purpose of feature scaling in machine learning?", options: ["To increase the number of features", "To ensure features have a uniform range", "To remove redundant features","To convert categorical variables to numerical"], correct: 1 },
+    { question: "What is the difference between 'precision' and 'recall' in classification problems?", options: ["Precision measures true positives and recall measures false positives", "Precision measures true positives out of predicted positives, recall measures true positives out of actual positives", " Precision measures the overall accuracy, recall measures model complexity"," Precision and recall are identical"], correct: 1 },
+    { question: "Which Python library is primarily used for numerical computation?", options: ["SciPy", "PyTorch", "NumPy","Seaborn"], correct: 2 },
+    { question: "In Natural Language Processing (NLP), what does 'tokenization' mean?", options: ["Translating text into another language", "Breaking text into smaller units like words or phrases", "Combining multiple datasets","Cleaning data by removing duplicates"], correct: 1 },
+    ], 
+    dsa: [
+    { question: "What is the time complexity for accessing an element in an array by its index?", options: ["O(n log n)", "O(log n)", "O(1)","O(n)"], correct: 2 },
+    { question: " Which of the following is true for a doubly linked list?", options: ["Each node has two pointers.", "It cannot be traversed backward.", "It requires less memory than a singly linked list.","None of the above"], correct: 0 },
+    { question: "It requires less memory than a singly linked list.", options: ["Push", "Pop", "Enqueue","Peek"], correct: 2 },
+    { question: "What type of queue is used to handle priorities?", options: ["Dequeue", "Circular Queue", "Simple queue","Priority Queue"], correct: 3 },
+    { question: "Which algorithm is used to find the shortest path in a weighted graph?", options: ["Depth First Search", "Breadth First Search", "Dijkstra’s Algorithm","Floyd-Warshall Algorithm"], correct: 2 },
+    { question: "Which sorting algorithm has the best average-case time complexity?", options: ["Insertion Sort", "Selection Sort", "Bubble Sort","Quick Sort"], correct: 3 },
+    { question: "What is the primary advantage of a hash table?", options: ["Always maintains sorted order", "Fast data access", "Simplifies data storage","Saves memory"], correct: 1 },
+    { question: "Which property must a problem have to apply dynamic programming?", options: ["Overlapping subproblems", "Divide-and-conquer property", "Greedy property","All of the above"], correct: 0 },
+    { question: "What is the Big-O notation for the best-case performance of the Binary Search Algorithm?", options: ["O(1)", "O(Logn)", "O(n)","O(nLogn)"], correct: 0 },
+    { question: "Which of the following techniques is used to solve the majority of array problems efficiently?", options: ["Divide and Conquer", "Brute Force", " Dynamic Programming","Two pointers"], correct: 3 },
+    { question: "What is the time complexity for inserting a new node at the beginning of a singly linked list?", options: ["O(nLogn)", "O(n)", "O(Logn)","O(1)"], correct: 3 },
+    { question: "What is the output of the following postfix expression: 5 3 + 8 2 - *?", options: ["40", "16", "38","42"], correct: 1 },
+    { question: "In a circular queue, if the front is at index 2 and the rear is at index 6 in a queue of size 7, how many elements are there in the queue?", options: ["4", "5", "6","3"], correct: 1 },
+    { question: "Which representation of a graph is most efficient in terms of space for a sparse graph?", options: ["Adjacency Matrix", "Adjacency List", "Incidence Matrix","None of the above"], correct: 1 },
+    { question: "Which sorting algorithm is best suited for nearly sorted data?", options: ["Selection sort", "Quick sort", "Merge sort","Insertion sort"], correct: 3 },
+    ],
+    
+    
+    // Add other courses similarly in lowercase
+};
+
+        function loadQuiz() {
+            const courseSelector = document.getElementById("courseSelector");
+            const course = courseSelector.value;
+            const courseTitle = document.getElementById("courseTitle");
+            const quizContent = document.getElementById("quizContent");
+            const result = document.getElementById("result");
+
+            // Clear any previous result
+            result.innerHTML = "";
+
+            // Check if a valid course is selected
+            if (course && quizzes[course]) {
+                courseTitle.innerText = course.toUpperCase() + " Quiz";
+                
+                // Generate the quiz HTML
+                quizContent.innerHTML = quizzes[course]
+                    .map((q, index) => {
+                        return `
+                            <div>
+                                <p class="question">${index + 1}. ${q.question}</p>
+                                <div class="options">
+                                    ${q.options
+                                        .map(
+                                            (option, i) => `
+                                                <label>
+                                                    <input type="radio" name="q${index}" value="${i}"> ${option}
+                                                </label>
+                                            `
+                                        )
+                                        .join("")}
+                                </div>
+                            </div>
+                        `;
+                    })
+                    .join("");
+            } else {
+                courseTitle.innerText = "No Quiz Available";
+                quizContent.innerHTML = "<p>Please select a valid course.</p>";
+            }
+        }
+
+        function submitAnswers() {
+            const courseSelector = document.getElementById("courseSelector");
+            const course = courseSelector.value;
+            const result = document.getElementById("result");
+
+            if (course && quizzes[course]) {
+                const userAnswers = quizzes[course].map((_, index) => {
+                    const selected = document.querySelector(
+                        `input[name='q${index}']:checked`
+                    );
+                    return selected ? parseInt(selected.value) : null;
+                });
+
+                const score = userAnswers.reduce((acc, answer, index) => {
+                    return answer === quizzes[course][index].correct ? acc + 1 : acc;
+                }, 0);
+
+                result.innerText = `You scored ${score} out of ${quizzes[course].length}`;
+            } else {
+                result.innerText = "Please select a course and answer all questions.";
+            }
+        }
+    </script>
+</body>
+</html>
